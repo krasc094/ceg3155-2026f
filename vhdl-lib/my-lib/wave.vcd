@@ -1,0 +1,492 @@
+$date
+  Wed Sep 23 19:45:52 2026
+$end
+$version
+  GHDL v0
+$end
+$timescale
+  1 fs
+$end
+$scope module standard $end
+$upscope $end
+$scope module std_logic_1164 $end
+$upscope $end
+$scope module shiftreg_tb $end
+$var reg 1 ! clock_tb $end
+$var reg 4 " d_tb[3:0] $end
+$var reg 4 # o_tb[3:0] $end
+$var reg 1 $ load_tb $end
+$var reg 1 % shiftl_tb $end
+$var reg 1 & shiftr_tb $end
+$var reg 1 ' shiftextension_tb $end
+$var reg 1 ( sim_end $end
+$scope module dut $end
+$var reg 1 ) clock $end
+$var reg 1 * reset $end
+$var reg 1 + load $end
+$var reg 1 , shiftl $end
+$var reg 1 - shiftr $end
+$var reg 1 . shiftextension $end
+$var reg 4 / d[3:0] $end
+$var reg 4 0 o[3:0] $end
+$var reg 4 1 int_d[3:0] $end
+$var reg 4 2 int_q[3:0] $end
+$var reg 2 3 int_sel[1:0] $end
+$scope module muxes(2) $end
+$scope module mux_i $end
+$var reg 1 4 a $end
+$var reg 1 5 b $end
+$var reg 1 6 c $end
+$var reg 1 7 d $end
+$var reg 2 8 sel[1:0] $end
+$var reg 1 9 o $end
+$upscope $end
+$upscope $end
+$scope module muxes(1) $end
+$scope module mux_i $end
+$var reg 1 : a $end
+$var reg 1 ; b $end
+$var reg 1 < c $end
+$var reg 1 = d $end
+$var reg 2 > sel[1:0] $end
+$var reg 1 ? o $end
+$upscope $end
+$upscope $end
+$scope module mux_lsb $end
+$var reg 1 @ a $end
+$var reg 1 A b $end
+$var reg 1 B c $end
+$var reg 1 C d $end
+$var reg 2 D sel[1:0] $end
+$var reg 1 E o $end
+$upscope $end
+$scope module mux_msb $end
+$var reg 1 F a $end
+$var reg 1 G b $end
+$var reg 1 H c $end
+$var reg 1 I d $end
+$var reg 2 J sel[1:0] $end
+$var reg 1 K o $end
+$upscope $end
+$scope module bits(3) $end
+$scope module b_i $end
+$var reg 1 L i_d $end
+$var reg 1 M i_clk $end
+$var reg 1 N i_reset_bar $end
+$var reg 1 O o_q $end
+$var reg 1 P o_qbar $end
+$var reg 1 Q a $end
+$var reg 1 R b $end
+$var reg 1 S c $end
+$var reg 1 T d $end
+$var reg 1 U int_q $end
+$var reg 1 V int_qbar $end
+$upscope $end
+$upscope $end
+$scope module bits(2) $end
+$scope module b_i $end
+$var reg 1 W i_d $end
+$var reg 1 X i_clk $end
+$var reg 1 Y i_reset_bar $end
+$var reg 1 Z o_q $end
+$var reg 1 [ o_qbar $end
+$var reg 1 \ a $end
+$var reg 1 ] b $end
+$var reg 1 ^ c $end
+$var reg 1 _ d $end
+$var reg 1 ` int_q $end
+$var reg 1 a int_qbar $end
+$upscope $end
+$upscope $end
+$scope module bits(1) $end
+$scope module b_i $end
+$var reg 1 b i_d $end
+$var reg 1 c i_clk $end
+$var reg 1 d i_reset_bar $end
+$var reg 1 e o_q $end
+$var reg 1 f o_qbar $end
+$var reg 1 g a $end
+$var reg 1 h b $end
+$var reg 1 i c $end
+$var reg 1 j d $end
+$var reg 1 k int_q $end
+$var reg 1 l int_qbar $end
+$upscope $end
+$upscope $end
+$scope module bits(0) $end
+$scope module b_i $end
+$var reg 1 m i_d $end
+$var reg 1 n i_clk $end
+$var reg 1 o i_reset_bar $end
+$var reg 1 p o_q $end
+$var reg 1 q o_qbar $end
+$var reg 1 r a $end
+$var reg 1 s b $end
+$var reg 1 t c $end
+$var reg 1 u d $end
+$var reg 1 v int_q $end
+$var reg 1 w int_qbar $end
+$upscope $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+1!
+bUUUU "
+b0000 #
+0$
+0%
+0&
+0'
+0(
+1)
+1*
+0+
+0,
+0-
+0.
+bUUUU /
+b0000 0
+b0000 1
+b0000 2
+b00 3
+04
+05
+06
+U7
+b00 8
+09
+0:
+0;
+0<
+U=
+b00 >
+0?
+0@
+0A
+0B
+UC
+b00 D
+0E
+0F
+0G
+0H
+UI
+b00 J
+0K
+0L
+1M
+1N
+0O
+1P
+0Q
+1R
+0S
+1T
+0U
+1V
+0W
+1X
+1Y
+0Z
+1[
+0\
+1]
+0^
+1_
+0`
+1a
+0b
+1c
+1d
+0e
+1f
+0g
+1h
+0i
+1j
+0k
+1l
+0m
+1n
+1o
+0p
+1q
+0r
+1s
+0t
+1u
+0v
+1w
+#500000
+#10000000
+0!
+b0010 "
+1$
+0)
+1+
+b0010 /
+b0010 1
+b11 3
+07
+b11 8
+1=
+b11 >
+1?
+0C
+b11 D
+0I
+b11 J
+0M
+1S
+0X
+1^
+1b
+0c
+1i
+0n
+1t
+#10500000
+1g
+0j
+#20000000
+1!
+b0010 #
+0$
+1)
+0+
+b0010 0
+b0010 1
+b0010 2
+b00 3
+16
+b00 8
+1:
+b00 >
+1?
+1A
+b00 D
+b00 J
+1M
+0S
+1X
+0^
+1b
+1c
+1e
+0f
+0h
+1k
+0l
+1n
+0t
+#20500000
+#30000000
+0!
+1%
+1'
+0)
+1,
+1.
+b0101 1
+b10 3
+b10 8
+19
+b10 >
+0?
+1B
+b10 D
+1E
+1G
+b10 J
+0M
+1S
+1W
+0X
+1^
+0b
+0c
+1h
+1m
+0n
+1t
+#30500000
+1\
+0_
+0g
+1j
+1r
+0u
+#40000000
+1!
+b0101 #
+0%
+0'
+1)
+0,
+0.
+b0101 0
+b0101 1
+b0101 2
+b00 3
+14
+06
+b00 8
+19
+0:
+1;
+1<
+b00 >
+0?
+1@
+0A
+0B
+b00 D
+1E
+0G
+1H
+b00 J
+1M
+0S
+1W
+1X
+1Z
+0[
+0]
+1`
+0a
+0b
+1c
+0e
+1f
+0i
+0k
+1l
+1m
+1n
+1p
+0q
+0s
+1v
+0w
+#40500000
+#50000000
+0!
+1&
+0)
+1-
+b0010 1
+b01 3
+b01 8
+09
+b01 >
+1?
+b01 D
+0E
+b01 J
+0M
+1S
+0W
+0X
+1]
+1b
+0c
+1i
+0m
+0n
+1s
+#50500000
+0\
+1_
+1g
+0j
+0r
+1u
+#60000000
+1!
+b0010 #
+0&
+1)
+0-
+b0010 0
+b0010 1
+b0010 2
+b00 3
+04
+16
+b00 8
+09
+1:
+0;
+0<
+b00 >
+1?
+0@
+1A
+b00 D
+0E
+0H
+b00 J
+1M
+0S
+0W
+1X
+0Z
+1[
+0^
+0`
+1a
+1b
+1c
+1e
+0f
+0h
+1k
+0l
+0m
+1n
+0p
+1q
+0t
+0v
+1w
+#60500000
+#70000000
+0!
+0)
+0M
+1S
+0X
+1^
+0c
+1h
+0n
+1t
+#70500000
+#80000000
+1!
+1(
+1)
+1M
+0S
+1X
+0^
+1c
+0h
+1n
+0t
+#80500000
+#90000000
+0!
+0)
+0M
+1S
+0X
+1^
+0c
+1h
+0n
+1t
+#90500000
+#100000000
