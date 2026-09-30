@@ -106,6 +106,8 @@ read_xdc C:/Desktop/MyNotes/uOttawa/Year_4/Digital_System_II/Labs/lab-1/Lab1/Lab
 set_property used_in_implementation false [get_files C:/Desktop/MyNotes/uOttawa/Year_4/Digital_System_II/Labs/lab-1/Lab1/Lab1.srcs/constrs_1/new/lab1_control.xdc]
 
 set_param ips.enableIPCacheLiteLoad 1
+
+read_checkpoint -auto_incremental -incremental C:/Desktop/MyNotes/uOttawa/Year_4/Digital_System_II/Labs/lab-1/Lab1/Lab1.srcs/utils_1/imports/synth_1/lab1_control.dcp
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }

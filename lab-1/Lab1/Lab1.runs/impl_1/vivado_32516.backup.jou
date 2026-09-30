@@ -2,8 +2,8 @@
 # Vivado v2022.1 (64-bit)
 # SW Build 3526262 on Mon Apr 18 15:48:16 MDT 2022
 # IP Build 3524634 on Mon Apr 18 20:55:01 MDT 2022
-# Start of session at: Wed Sep 30 19:11:14 2026
-# Process ID: 32076
+# Start of session at: Wed Sep 30 18:59:29 2026
+# Process ID: 32516
 # Current directory: C:/Desktop/MyNotes/uOttawa/Year_4/Digital_System_II/Labs/lab-1/Lab1/Lab1.runs/impl_1
 # Command line: vivado.exe -log lab1_control.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source lab1_control.tcl -notrace
 # Log file: C:/Desktop/MyNotes/uOttawa/Year_4/Digital_System_II/Labs/lab-1/Lab1/Lab1.runs/impl_1/lab1_control.vdi
