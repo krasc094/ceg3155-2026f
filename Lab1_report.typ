@@ -42,7 +42,7 @@
 
   #v(1fr)
   #text(weight: "bold")[Group:]#hole("#") \
-  #text(weight: "bold")[Student Name and number:] Marcel Traore \300379484 \
+  #text(weight: "bold")[Student Name and number:] Marcel Traore 300379484 \
   #text(weight: "bold")[Student Name and number:] #hole("Name") \##hole("Student ID") \
   #text(weight: "bold")[Experiment Date:] #hole("Date") \
   #text(weight: "bold")[Submission Date:] #hole("Date")
@@ -112,6 +112,8 @@ The chart has five states. S0 is the initial state: DISPLAY is cleared, LMASK is
 #figure(image("figures/datapath.png", width: 85%), caption: [Datapath]) <fig-dp>
 Following the ASM rules, each unique name in the RTN statements gets its own register: LMASK, RMASK and DISPLAY. LMASK and RMASK are shift registers with a parallel load of their initial value (00000001 and 10000000) and control inputs Load_LMASK/shift_LMASK and Load_RMASK/shift_RMASK. An 8-bit OR gate forms LMASK OR RMASK. Since DISPLAY has four possible sources, a 4-to-1 mux selects its input, with LEFT and RIGHT used directly as the select lines: 11 selects LMASK OR RMASK, 10 selects LMASK, 01 selects RMASK and 00 selects 00000000. DISPLAY is loaded when Load_Display is high and drives DisplayOut[7..0].
 
+Because the mux select comes directly from the switches, loading DISPLAY in S0 does not guarantee 00000000 unless both switches are off. In a complete implementation, DISPLAY should instead be cleared by the global reset (or the mux select forced to 00 in S0).
+
 == Detailed ASM Chart
 #figure(image("figures/detailed-asm.png", width: 85%), caption: [Detailed ASM chart]) <fig-dasm>
 Each RTN statement of @fig-asm is replaced by the control signals that perform it on the datapath of @fig-dp, and each decision box tests the LEFT and RIGHT status signals. S0 asserts Load_Display, Load_LMASK and Load_RMASK. S1 asserts shift_LMASK, shift_RMASK and Load_Display. S2 asserts shift_LMASK and Load_Display, S3 asserts shift_RMASK and Load_Display, and S4 only asserts Load_Display (the mux already selects 00000000). Unlisted signals are 0.
@@ -119,29 +121,35 @@ Each RTN statement of @fig-asm is replaced by the control signals that perform i
 == Control Logic (One-FF-Per-State)
 #figure(image("figures/control-logic.png", width: 90%), caption: [Control logic (one-FF-per-state)]) <fig-ctrl>
 One D flip-flop is used per state (S0 to S4), all clocked by CLK, so exactly one state is active at a time. Each control signal is the OR of the states that assert it in @fig-dasm:
-- Load_Display = S0 AND S1 AND S2 AND S3 AND S4
-- Load_LMASK = S0 AND S1 AND S2, #h(1em) shift_LMASK = S1 AND S2
-- Load_RMASK = S0 AND S1 AND S3, #h(1em) shift_RMASK = S1 AND S3
+- Load_Display = S0 + S1 + S2 + S3 + S4
+- Load_LMASK = S0, #h(1em) shift_LMASK = S1 + S2
+- Load_RMASK = S0, #h(1em) shift_RMASK = S1 + S3
 
-Every state returns to the same decision boxes, so the next-state inputs only depend on the switches:
-- S1_in = LEFT OR RIGHT
-- S2_in = LEFT OR RIGHT'
-- S3_in = LEFT' OR RIGHT
-- S4_in = LEFT' OR RIGHT'
+Every state returns to the same decision boxes, and exactly one state is always active, so the next-state inputs only depend on the switches:
+- S1_in = LEFT · RIGHT
+- S2_in = LEFT · RIGHT'
+- S3_in = LEFT' · RIGHT
+- S4_in = LEFT' · RIGHT'
 
-In the VHDL (`lab1_control`), the state flip-flops are dFF_2 and GReset is handled synchronously: S0_in = GReset, and each of S1_in to S4_in is also ANDed with GReset', so the controller is in S0 while GReset is high and leaves it on the first clock edge after GReset is released. The mask registers are implemented with the `shiftRegister` component, where load has priority over shift. For this reason the VHDL drives the load input with S0 only (LMASK ← 00000001, RMASK ← 10000000) and the shift inputs with S0 + S1 + S2 and S0 + S1 + S3; in S0 the load overrides the shift, which gives the same behaviour as the chart.
+@fig-ctrl was drawn before the VHDL was written, and it differs from the equations above in two places: it ANDs S0_out into each next-state input, and it ORs S0, S1 and S2 into Load_LMASK (and S0, S1 and S3 into Load_RMASK). The equations above are the ones implemented in the VHDL.
+
+In the VHDL (`lab1_control`), the state flip-flops are `dFF_2`, which has no reset input, so GReset is handled synchronously: S0_in = GReset, and each of S1_in to S4_in is also ANDed with GReset', so the controller is in S0 while GReset is high and leaves it on the first clock edge after GReset is released. The mask registers use the `shiftRegister` component, where load has priority over shift. For this reason the VHDL drives the load inputs with S0 only and the shift inputs with S0 + S1 + S2 and S0 + S1 + S3; in S0 the load overrides the shift, which gives the same behaviour as the chart.
 
 = Implementation
 == Component Descriptions
-To implement the pseudocode and upload it onto our board, we design the following components using VHDL.
+The following components were written in VHDL:
 
-- *dFF_2:* D flip-flop (course-provided) used as the one-hot state register in the control path. \
-- *shiftRegister:* generic n-bit register built from 4-to-1 muxes and D flip-flops; supports hold, shift left, shift right and parallel load (load has priority). It is used for LMASK and RMASK. \
+- *dFF_2:* D flip-flop (course-provided, no reset) used as the one-hot state register in the control path. \
+- *dFlipFlop:* positive-edge-triggered D flip-flop built from six NAND-type gates, with an asynchronous active-low reset (i_reset_bar = 0 forces Q to 0). It is the storage element of the shift register. \
+- *mux4_1bit:* 1-bit 4-to-1 multiplexer written as a sum of products; select 00 picks a, 01 picks b, 10 picks c and 11 picks d. \
+- *shiftRegister:* generic n-bit register with one `mux4_1bit` and one `dFlipFlop` per bit. The select lines are sel(1) = shiftL + load and sel(0) = shiftR + load, so 00 holds, 01 shifts right (bit i takes bit i+1), 10 shifts left (bit i takes bit i-1) and 11 loads d. Because load drives both select lines, it has priority over either shift. The end bits take shiftExtension as the incoming bit. It is intended for LMASK and RMASK. \
 - *lab1_control:* one-hot controller with states S0 to S4 producing the load and shift control signals. \
 
-The full code is in the Appendix.
+The datapath (DISPLAY register, 4-to-1 display mux and OR gate) and the top-level entity connecting it to `lab1_control` were not completed. The board clock is 100 MHz, so a clock divider down to 1 Hz would also be needed before the design can run on the board. The full code of the completed files is in the Appendix.
 
-== Pin Assignment
+== Planned Pin Assignment
+Since the top-level entity was not completed, the following pin assignment is the planned one and was not tested on the board.
+
 #figure(
   table(
     columns: 3,
@@ -152,7 +160,7 @@ The full code is in the Appendix.
     [GReset], [SW3], [R15],
     [DisplayOut[7..0]], [LED7..LED0], [U16, U17, V17, R18, N14, J13, K15, H17],
   ),
-  caption: [Nexys A7-100T pin assignment],
+  caption: [Planned Nexys A7-100T pin assignment],
 )
 
 = Simulation Results
@@ -161,19 +169,24 @@ The full code is in the Appendix.
   image("lab-1/waveforms/shiftRegister waveform.png", width: 100%),
   caption: [Shift register simulation (4 bits, clock period 20 ns)],
 )
-The testbench checks the three operations of the shift register. At 10 ns, d_tb is set to 0010 and load_tb goes high, so at the rising edge at 20 ns the register loads 0010. From 30 to 40 ns, shiftl_tb and shiftextension_tb are high, so at the 40 ns edge the register shifts left and the extension bit enters bit 0: 0010 becomes 0101. From 50 to 60 ns, shiftr_tb is high with the extension at 0, so at the 60 ns edge the register shifts right: 0101 becomes 0010. Between these operations no control signal is high, so the output holds its value. The results match the expected values, and the asserts in the testbench did not report any error.
+The testbench checks the three operations of the shift register. At 10 ns, d_tb is set to 0010 and load_tb goes high, so at the rising edge at 20 ns the register loads 0010. From 30 to 40 ns, shiftl_tb and shiftextension_tb are high, so at the 40 ns edge the register shifts left and the extension bit enters bit 0: 0010 becomes 0101. From 50 to 60 ns, shiftr_tb is high with the extension at 0, so at the 60 ns edge the register shifts right: 0101 becomes 0010. Between these operations no control signal is high, so the output holds its value. The results match the expected values.
 
 == Control Logic
-The control path was simulated by holding GReset high for one clock cycle and then applying LEFT and RIGHT, LEFT only, RIGHT only and neither, one cycle each. Since GReset is synchronous, S0 becomes active on the first rising edge with GReset high and asserts Load_LMASK, Load_RMASK and Load_Display (shift_LMASK and shift_RMASK are also high in S0, but load has priority in the shift register). After GReset is released, the controller moves to S1 (shift_LMASK, shift_RMASK, Load_Display), S2 (shift_LMASK, Load_Display), S3 (shift_RMASK, Load_Display) and S4 (Load_Display only) for each switch combination, with exactly one state flip-flop high at a time, which matches the detailed ASM chart.
+No testbench was written for `lab1_control`, so no waveform is included. Tracing the VHDL equations: while GReset is high, only S0 is set on the next clock edge, which asserts Load_LMASK, Load_RMASK and Load_Display (shift_LMASK and shift_RMASK are also high in S0, but load has priority in the shift register). After GReset is released, each switch combination sets exactly one of S1 (LEFT and RIGHT), S2 (LEFT only), S3 (RIGHT only) or S4 (neither) on the next edge, which matches the detailed ASM chart.
 
 == Full Display Controller
-Traced from the ASM chart, the display shows 00000001, 00000010, 00000100 and so on with LEFT on, 10000000, 01000000 and so on with RIGHT on, and LMASK OR RMASK with both on, so the two lights move toward each other. With both switches off, the display is blank but LMASK and RMASK keep their values, so the motion resumes from where it stopped when a switch is turned back on.
+The datapath and top-level entity were not completed in time, so the full display controller was not simulated. Traced by hand from the ASM chart, the display should show 00000001, 00000010, 00000100 and so on with LEFT on, 10000000, 01000000 and so on with RIGHT on, and LMASK OR RMASK with both on, so the two lights move toward each other. With both switches off, the display is blank but LMASK and RMASK keep their values, so the motion resumes from where it stopped when a switch is turned back on.
 
 = Hardware Test
-Since we were not able to access the lab before the submission of the report, we didn't show the demonstration of our VHDL code.
+Since the top-level entity was not completed and we were not able to access the lab before the submission of the report, the design was not demonstrated on the board.
+
+= Design Obstacles
+- *No reset on the state flip-flops:* the course-provided `dFF_2` has no reset input, so GReset was made synchronous by feeding it into S0_in and blocking S1_in to S4_in while it is high.
+- *Load and shift in the same state:* the chart loads the masks in S0 while S1 to S3 shift them. Giving load priority over shift in `shiftRegister` let the shift signals stay simple without conflicting with the load in S0.
+- *Time and lab access:* the datapath, top-level entity, clock divider and board test were not finished before the deadline.
 
 = Conclusion
-The light display controller was designed with the five steps of the ASM method: pseudocode, ASM chart, datapath, detailed ASM chart and one-FF-per-state control logic. The control path and the shift register were implemented in structural VHDL, and the shift register simulation matched the expected load, shift left and shift right results.
+The light display controller was designed with the five steps of the ASM method: pseudocode, ASM chart, datapath, detailed ASM chart and one-FF-per-state control logic. The control path and the shift register were implemented in structural VHDL, and the shift register simulation matched the expected load, shift left and shift right results. The remaining work is the datapath, the top-level entity with a 1 Hz clock divider, a full simulation and the board demonstration.
 
 #pagebreak()
 #set heading(numbering: "A.1")
@@ -184,6 +197,12 @@ The light display controller was designed with the five steps of the ASM method:
 
 == lab-1-control.vhdl
 #raw(read("lab-1/lab-1-control.vhdl"), lang: "vhdl", block: true)
+
+== dFlipFlop.vhdl
+#raw(read("lab-1/dFlipFlop.vhdl"), lang: "vhdl", block: true)
+
+== mux4_1bit.vhdl
+#raw(read("lab-1/mux4_1bit.vhdl"), lang: "vhdl", block: true)
 
 == shiftReg-nbit.vhdl
 #raw(read("lab-1/shiftReg-nbit.vhdl"), lang: "vhdl", block: true)
