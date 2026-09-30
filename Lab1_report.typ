@@ -43,7 +43,7 @@
   #v(1fr)
   #text(weight: "bold")[Group:]#hole("#") \
   #text(weight: "bold")[Student Name and number:] Marcel Traore 300379484 \
-  #text(weight: "bold")[Student Name and number:] #hole("Name") \##hole("Student ID") \
+  #text(weight: "bold")[Student Name and number:] Kai Rasco \#300304789 \
   #text(weight: "bold")[Experiment Date:] #hole("Date") \
   #text(weight: "bold")[Submission Date:] #hole("Date")
   #v(0.3in)

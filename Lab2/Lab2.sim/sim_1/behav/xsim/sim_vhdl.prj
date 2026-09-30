@@ -1,0 +1,30 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../../../../../../../CEG3155/Lab2/vhdl/alu_add_sim.vhdl" \
+"../../../../../../../../../../CEG3155/Lab2/vhdl/alu_prod_sim.vhdl" \
+"../../../../../../../../../../CEG3155/Lab2/vhdl/alu_quot_sim.vhdl" \
+"../../../../../../../../../../CEG3155/Lab2/vhdl/alu_sub_sim.vhdl" \
+"../../../../../../../../../../CEG3155/Lab2/vhdl/counter.vhdl" \
+"../../../../../../../../../../CEG3155/Lab2/vhdl/counter_sim.vhdl" \
+"../../../../../../../../../../CEG3155/Lab2/vhdl/enardFF_2.vhdl" \
+"../../../../../../../../../../CEG3155/Lab2/vhdl/fixed_point_alu.vhdl" \
+"../../../../../../../../../../CEG3155/Lab2/vhdl/nbit_abs.vhdl" \
+"../../../../../../../../../../CEG3155/Lab2/vhdl/nbit_abs_sim.vhdl" \
+"../../../../../../../../../../CEG3155/Lab2/vhdl/nbit_comparator.vhdl" \
+"../../../../../../../../../../CEG3155/Lab2/vhdl/nbit_comparator_sim.vhdl" \
+"../../../../../../../../../../CEG3155/Lab2/vhdl/nbit_register.vhdl" \
+"../../../../../../../../../../CEG3155/Lab2/vhdl/nbit_selector.vhdl" \
+"../../../../../../../../../../CEG3155/Lab2/vhdl/nbit_selector_sim.vhdl" \
+"../../../../../../../../../../CEG3155/Lab2/vhdl/nbit_shift_filter.vhdl" \
+"../../../../../../../../../../CEG3155/Lab2/vhdl/nbit_shift_filter_sim.vhdl" \
+"../../../../../../../../../../CEG3155/Lab2/vhdl/onebitadder.vhd" \
+"../../../../../../../../../../CEG3155/Lab2/vhdl/onebitcomparator.vhdl" \
+"../../../../../../../../../../CEG3155/Lab2/vhdl/quad_n_mux_selector.vhdl" \
+"../../../../../../../../../../CEG3155/Lab2/vhdl/quad_n_mux_selector_sim.vhdl" \
+"../../../../../../../../../../CEG3155/Lab2/vhdl/ripple_adder.vhdl" \
+"../../../../../../../../../../CEG3155/Lab2/vhdl/ripple_adder_4bit_sim.vhdl" \
+"../../../../../../../../../../CEG3155/Lab2/vhdl/ripple_adder_8bit_sim.vhdl" \
+"../../../../../../../../../../CEG3155/Lab2/vhdl/sim.vhdl" \
+
+# Do not sort compile order
+nosort

@@ -1,0 +1,8 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../../dFlipFlop.vhdl" \
+"../../../../../mux4_1bit.vhdl" \
+"../../../../../shiftReg-nbit.vhdl" \
+
+# Do not sort compile order
+nosort

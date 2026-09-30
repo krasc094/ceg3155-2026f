@@ -1,0 +1,251 @@
+
+*** Running vivado
+    with args -log lab1_control.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source lab1_control.tcl
+
+
+
+****** Vivado v2022.1 (64-bit)
+  **** SW Build 3526262 on Mon Apr 18 15:48:16 MDT 2022
+  **** IP Build 3524634 on Mon Apr 18 20:55:01 MDT 2022
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+source lab1_control.tcl -notrace
+create_project: Time (s): cpu = 00:00:14 ; elapsed = 00:00:20 . Memory (MB): peak = 1367.051 ; gain = 0.000
+Command: synth_design -top lab1_control -part xc7a100tcsg324-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Device 21-403] Loading part xc7a100tcsg324-1
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 320
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 1367.051 ; gain = 0.000
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'lab1_control' [C:/Desktop/MyNotes/uOttawa/Year_4/Digital_System_II/Labs/lab-1/lab-1-control.vhdl:20]
+INFO: [Synth 8-3491] module 'dFF_2' declared at 'C:/Desktop/MyNotes/uOttawa/Year_4/Digital_System_II/Labs/lab-1/dFF_2.vhd:31' bound to instance 's0' of component 'dff_2' [C:/Desktop/MyNotes/uOttawa/Year_4/Digital_System_II/Labs/lab-1/lab-1-control.vhdl:45]
+INFO: [Synth 8-638] synthesizing module 'dFF_2' [C:/Desktop/MyNotes/uOttawa/Year_4/Digital_System_II/Labs/lab-1/dFF_2.vhd:38]
+INFO: [Synth 8-256] done synthesizing module 'dFF_2' (0#1) [C:/Desktop/MyNotes/uOttawa/Year_4/Digital_System_II/Labs/lab-1/dFF_2.vhd:38]
+INFO: [Synth 8-3491] module 'dFF_2' declared at 'C:/Desktop/MyNotes/uOttawa/Year_4/Digital_System_II/Labs/lab-1/dFF_2.vhd:31' bound to instance 's1' of component 'dff_2' [C:/Desktop/MyNotes/uOttawa/Year_4/Digital_System_II/Labs/lab-1/lab-1-control.vhdl:52]
+INFO: [Synth 8-3491] module 'dFF_2' declared at 'C:/Desktop/MyNotes/uOttawa/Year_4/Digital_System_II/Labs/lab-1/dFF_2.vhd:31' bound to instance 's2' of component 'dff_2' [C:/Desktop/MyNotes/uOttawa/Year_4/Digital_System_II/Labs/lab-1/lab-1-control.vhdl:59]
+INFO: [Synth 8-3491] module 'dFF_2' declared at 'C:/Desktop/MyNotes/uOttawa/Year_4/Digital_System_II/Labs/lab-1/dFF_2.vhd:31' bound to instance 's3' of component 'dff_2' [C:/Desktop/MyNotes/uOttawa/Year_4/Digital_System_II/Labs/lab-1/lab-1-control.vhdl:66]
+INFO: [Synth 8-3491] module 'dFF_2' declared at 'C:/Desktop/MyNotes/uOttawa/Year_4/Digital_System_II/Labs/lab-1/dFF_2.vhd:31' bound to instance 's4' of component 'dff_2' [C:/Desktop/MyNotes/uOttawa/Year_4/Digital_System_II/Labs/lab-1/lab-1-control.vhdl:73]
+INFO: [Synth 8-256] done synthesizing module 'lab1_control' (0#1) [C:/Desktop/MyNotes/uOttawa/Year_4/Digital_System_II/Labs/lab-1/lab-1-control.vhdl:20]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:18 ; elapsed = 00:00:21 . Memory (MB): peak = 1386.016 ; gain = 18.965
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:18 ; elapsed = 00:00:21 . Memory (MB): peak = 1386.016 ; gain = 18.965
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:18 ; elapsed = 00:00:21 . Memory (MB): peak = 1386.016 ; gain = 18.965
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1386.016 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [C:/Desktop/MyNotes/uOttawa/Year_4/Digital_System_II/Labs/lab-1/Lab1/Lab1.srcs/constrs_1/new/lab1_control.xdc]
+WARNING: [Vivado 12-584] No ports matched 'CLK100MHZ'. [C:/Desktop/MyNotes/uOttawa/Year_4/Digital_System_II/Labs/lab-1/Lab1/Lab1.srcs/constrs_1/new/lab1_control.xdc:8]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Desktop/MyNotes/uOttawa/Year_4/Digital_System_II/Labs/lab-1/Lab1/Lab1.srcs/constrs_1/new/lab1_control.xdc:8]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'Left'. [C:/Desktop/MyNotes/uOttawa/Year_4/Digital_System_II/Labs/lab-1/Lab1/Lab1.srcs/constrs_1/new/lab1_control.xdc:14]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Desktop/MyNotes/uOttawa/Year_4/Digital_System_II/Labs/lab-1/Lab1/Lab1.srcs/constrs_1/new/lab1_control.xdc:14]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'Right'. [C:/Desktop/MyNotes/uOttawa/Year_4/Digital_System_II/Labs/lab-1/Lab1/Lab1.srcs/constrs_1/new/lab1_control.xdc:15]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Desktop/MyNotes/uOttawa/Year_4/Digital_System_II/Labs/lab-1/Lab1/Lab1.srcs/constrs_1/new/lab1_control.xdc:15]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'LED_OUT[0]'. [C:/Desktop/MyNotes/uOttawa/Year_4/Digital_System_II/Labs/lab-1/Lab1/Lab1.srcs/constrs_1/new/lab1_control.xdc:31]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Desktop/MyNotes/uOttawa/Year_4/Digital_System_II/Labs/lab-1/Lab1/Lab1.srcs/constrs_1/new/lab1_control.xdc:31]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'LED_OUT[1]'. [C:/Desktop/MyNotes/uOttawa/Year_4/Digital_System_II/Labs/lab-1/Lab1/Lab1.srcs/constrs_1/new/lab1_control.xdc:32]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Desktop/MyNotes/uOttawa/Year_4/Digital_System_II/Labs/lab-1/Lab1/Lab1.srcs/constrs_1/new/lab1_control.xdc:32]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'LED_OUT[2]'. [C:/Desktop/MyNotes/uOttawa/Year_4/Digital_System_II/Labs/lab-1/Lab1/Lab1.srcs/constrs_1/new/lab1_control.xdc:33]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Desktop/MyNotes/uOttawa/Year_4/Digital_System_II/Labs/lab-1/Lab1/Lab1.srcs/constrs_1/new/lab1_control.xdc:33]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'LED_OUT[3]'. [C:/Desktop/MyNotes/uOttawa/Year_4/Digital_System_II/Labs/lab-1/Lab1/Lab1.srcs/constrs_1/new/lab1_control.xdc:34]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Desktop/MyNotes/uOttawa/Year_4/Digital_System_II/Labs/lab-1/Lab1/Lab1.srcs/constrs_1/new/lab1_control.xdc:34]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'LED_OUT[4]'. [C:/Desktop/MyNotes/uOttawa/Year_4/Digital_System_II/Labs/lab-1/Lab1/Lab1.srcs/constrs_1/new/lab1_control.xdc:35]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Desktop/MyNotes/uOttawa/Year_4/Digital_System_II/Labs/lab-1/Lab1/Lab1.srcs/constrs_1/new/lab1_control.xdc:35]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'LED_OUT[5]'. [C:/Desktop/MyNotes/uOttawa/Year_4/Digital_System_II/Labs/lab-1/Lab1/Lab1.srcs/constrs_1/new/lab1_control.xdc:36]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Desktop/MyNotes/uOttawa/Year_4/Digital_System_II/Labs/lab-1/Lab1/Lab1.srcs/constrs_1/new/lab1_control.xdc:36]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'LED_OUT[6]'. [C:/Desktop/MyNotes/uOttawa/Year_4/Digital_System_II/Labs/lab-1/Lab1/Lab1.srcs/constrs_1/new/lab1_control.xdc:37]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Desktop/MyNotes/uOttawa/Year_4/Digital_System_II/Labs/lab-1/Lab1/Lab1.srcs/constrs_1/new/lab1_control.xdc:37]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'LED_OUT[7]'. [C:/Desktop/MyNotes/uOttawa/Year_4/Digital_System_II/Labs/lab-1/Lab1/Lab1.srcs/constrs_1/new/lab1_control.xdc:38]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Desktop/MyNotes/uOttawa/Year_4/Digital_System_II/Labs/lab-1/Lab1/Lab1.srcs/constrs_1/new/lab1_control.xdc:38]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'AN[0]'. [C:/Desktop/MyNotes/uOttawa/Year_4/Digital_System_II/Labs/lab-1/Lab1/Lab1.srcs/constrs_1/new/lab1_control.xdc:65]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Desktop/MyNotes/uOttawa/Year_4/Digital_System_II/Labs/lab-1/Lab1/Lab1.srcs/constrs_1/new/lab1_control.xdc:65]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+Finished Parsing XDC File [C:/Desktop/MyNotes/uOttawa/Year_4/Digital_System_II/Labs/lab-1/Lab1/Lab1.srcs/constrs_1/new/lab1_control.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Desktop/MyNotes/uOttawa/Year_4/Digital_System_II/Labs/lab-1/Lab1/Lab1.srcs/constrs_1/new/lab1_control.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/lab1_control_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/lab1_control_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1400.180 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 1400.180 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:44 ; elapsed = 00:00:49 . Memory (MB): peak = 1400.180 ; gain = 33.129
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a100tcsg324-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:44 ; elapsed = 00:00:49 . Memory (MB): peak = 1400.180 ; gain = 33.129
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:44 ; elapsed = 00:00:49 . Memory (MB): peak = 1400.180 ; gain = 33.129
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:45 ; elapsed = 00:00:49 . Memory (MB): peak = 1400.180 ; gain = 33.129
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 5     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 240 (col length:80)
+BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:49 ; elapsed = 00:00:54 . Memory (MB): peak = 1400.180 ; gain = 33.129
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:04 ; elapsed = 00:01:09 . Memory (MB): peak = 1400.180 ; gain = 33.129
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:01:04 ; elapsed = 00:01:09 . Memory (MB): peak = 1400.180 ; gain = 33.129
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:01:04 ; elapsed = 00:01:09 . Memory (MB): peak = 1409.297 ; gain = 42.246
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:01:15 ; elapsed = 00:01:20 . Memory (MB): peak = 1416.062 ; gain = 49.012
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:15 ; elapsed = 00:01:20 . Memory (MB): peak = 1416.062 ; gain = 49.012
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:15 ; elapsed = 00:01:20 . Memory (MB): peak = 1416.062 ; gain = 49.012
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:15 ; elapsed = 00:01:20 . Memory (MB): peak = 1416.062 ; gain = 49.012
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:15 ; elapsed = 00:01:20 . Memory (MB): peak = 1416.062 ; gain = 49.012
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:15 ; elapsed = 00:01:20 . Memory (MB): peak = 1416.062 ; gain = 49.012
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-----+------+
+|      |Cell |Count |
++------+-----+------+
+|1     |BUFG |     1|
+|2     |LUT3 |     6|
+|3     |LUT5 |     1|
+|4     |FDRE |     5|
+|5     |IBUF |     4|
+|6     |OBUF |     5|
++------+-----+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:15 ; elapsed = 00:01:20 . Memory (MB): peak = 1416.062 ; gain = 49.012
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 1 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:52 ; elapsed = 00:01:15 . Memory (MB): peak = 1416.062 ; gain = 34.848
+Synthesis Optimization Complete : Time (s): cpu = 00:01:15 ; elapsed = 00:01:21 . Memory (MB): peak = 1416.062 ; gain = 49.012
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1428.117 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1432.746 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete, checksum: f2e90de7
+INFO: [Common 17-83] Releasing license: Synthesis
+22 Infos, 13 Warnings, 12 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:01:26 ; elapsed = 00:01:43 . Memory (MB): peak = 1432.746 ; gain = 65.695
+INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
+INFO: [Common 17-1381] The checkpoint 'C:/Desktop/MyNotes/uOttawa/Year_4/Digital_System_II/Labs/lab-1/Lab1/Lab1.runs/synth_1/lab1_control.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file lab1_control_utilization_synth.rpt -pb lab1_control_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Wed Sep 30 18:36:31 2026...
