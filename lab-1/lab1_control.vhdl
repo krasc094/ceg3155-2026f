@@ -21,7 +21,7 @@ architecture structural of lab1_control is
   signal s0in, s1in, s2in, s3in, s4in : std_logic;
   signal s0out, s1out, s2out, s3out, s4out : std_logic;
 
-  component dff_2 is
+  component dFF_2 is
     port(
       i_d		: in	std_logic;
       i_clock		: in	std_logic;
@@ -42,35 +42,35 @@ begin
   o_shiftLMask <= s0out or s1out or s2out;
   o_shiftRMask <= s0out or s1out or s3out;
 
-s0 : dff_2
+s0 : dFF_2
 port map (
       i_d => s0in,
       i_clock => i_clock,
       o_q => s0out
 );
 
-s1 : dff_2
+s1 : dFF_2
 port map (
       i_d => s1in,
       i_clock => i_clock,
       o_q => s1out
 );
 
-s2 : dff_2
+s2 : dFF_2
 port map (
       i_d => s2in,
       i_clock => i_clock,
       o_q => s2out
 );
 
-s3 : dff_2
+s3 : dFF_2
 port map (
       i_d => s3in,
       i_clock => i_clock,
       o_q => s3out
 );
 
-s4 : dff_2
+s4 : dFF_2
 port map (
       i_d => s4in,
       i_clock => i_clock,
