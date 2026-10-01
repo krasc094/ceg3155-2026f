@@ -1,0 +1,50 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Desktop/CEG3155/Lab2/vhdl/alu_add_sim.vhdl" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'alu_add_sim'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Desktop/CEG3155/Lab2/vhdl/alu_prod_sim.vhdl" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'alu_prod_sim'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Desktop/CEG3155/Lab2/vhdl/alu_quot_sim.vhdl" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'alu_quot_sim'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Desktop/CEG3155/Lab2/vhdl/alu_sub_sim.vhdl" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'alu_sub_sim'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Desktop/CEG3155/Lab2/vhdl/counter.vhdl" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'counter'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Desktop/CEG3155/Lab2/vhdl/counter_sim.vhdl" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'counter_sim'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Desktop/CEG3155/Lab2/vhdl/enardFF_2.vhdl" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'enARdFF_2'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Desktop/CEG3155/Lab2/vhdl/fixed_point_alu.vhdl" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'fixedPointALU'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Desktop/CEG3155/Lab2/vhdl/nbit_abs.vhdl" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'nbit_abs'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Desktop/CEG3155/Lab2/vhdl/nbit_abs_sim.vhdl" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'nbit_abs_sim'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Desktop/CEG3155/Lab2/vhdl/nbit_comparator.vhdl" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'nbit_comparator'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Desktop/CEG3155/Lab2/vhdl/nbit_comparator_sim.vhdl" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'nbit_comparator_sim'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Desktop/CEG3155/Lab2/vhdl/nbit_register.vhdl" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'nbit_register'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Desktop/CEG3155/Lab2/vhdl/nbit_selector.vhdl" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'nbit_selector'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Desktop/CEG3155/Lab2/vhdl/nbit_selector_sim.vhdl" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'nbit_selector_sim'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Desktop/CEG3155/Lab2/vhdl/nbit_shift_filter.vhdl" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'nbit_shift_filter'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Desktop/CEG3155/Lab2/vhdl/nbit_shift_filter_sim.vhdl" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'nbit_shift_filter_sim'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Desktop/CEG3155/Lab2/vhdl/onebitadder.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'oneBitAdder'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Desktop/CEG3155/Lab2/vhdl/onebitcomparator.vhdl" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'oneBitComparator'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Desktop/CEG3155/Lab2/vhdl/quad_n_mux_selector.vhdl" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'quad_n_mux_selector'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Desktop/CEG3155/Lab2/vhdl/quad_n_mux_selector_sim.vhdl" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'quad_n_mux_selector_sim'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Desktop/CEG3155/Lab2/vhdl/ripple_adder.vhdl" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'ripple_adder'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Desktop/CEG3155/Lab2/vhdl/ripple_adder_4bit_sim.vhdl" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'ripple_adder_4bit_sim'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Desktop/CEG3155/Lab2/vhdl/ripple_adder_8bit_sim.vhdl" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'ripple_adder_8bit_sim'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Desktop/CEG3155/Lab2/vhdl/sim.vhdl" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'sim'
