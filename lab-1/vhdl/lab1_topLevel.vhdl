@@ -73,7 +73,7 @@ signal int_displayIn, int_rmaskIn, int_lmaskIn : std_logic_vector(7 downto 0);
 signal int_displayOut, int_rmaskOut, int_lmaskOut, int_bothOut : std_logic_vector(7 downto 0);
 
 signal int_muxSel : std_logic_vector(1 downto 0);
-signal int_clock : std_logic;
+signal int_clock, int_reset: std_logic;
 
 begin
 
@@ -90,13 +90,16 @@ int_rmaskIn <= "10000000";
 clock_div: clk_div 
 	port map (
 		clock_25mhz => GClock,
-		clock_1hz => int_clock	
-  );
+		clock_1hz	=> int_clock
+);	
+
+
+int_reset <= not GReset;
 
 control : lab1_control
  port map(
     i_clock => int_clock,
-    i_reset => GReset,
+    i_reset => int_reset,
     i_left => Left,
     i_right => Right,
     o_loadDisplay => int_loadDisplay,
@@ -121,20 +124,20 @@ displayReg : shiftRegister
  generic map( n => 8 )
  port map(
     clock => int_clock,
-    reset => GReset,
+    reset => int_reset,
     load => int_loadDisplay,
     shiftL => zero,
     shiftR => zero,
     shiftExtension => zero,
     d => int_displayIn,
-    o => int_displayOut
+    o => DisplayOut
 );
 
 lMaskReg : shiftRegister
  generic map( n =>  8 )
  port map(
     clock => int_clock,
-    reset => GReset,
+    reset => int_reset,
     load => int_loadLMask,
     shiftL => int_shiftLmask,
     shiftR => zero,
@@ -147,7 +150,7 @@ rMaskReg : shiftRegister
  generic map( n => 8 )
  port map(
     clock => int_clock,
-    reset => GReset,
+    reset => int_reset,
     load => int_loadRMask,
     shiftL => zero,
     shiftR => int_shiftRmask,
@@ -202,7 +205,48 @@ dut: lab1_topLevel
 
   stimulus: 
 process begin 
+
+  reset_tb <= '0'; 
+  left_tb <= '0'; 
+  right_tb <= '0'; 
+
+  wait for clock_period / 2;
+  reset_tb <= '1'; 
+
   wait for clock_period;
+  wait for clock_period;
+  reset_tb <= '0'; 
+
+
+  wait for clock_period;
+  left_tb <= '1'; 
+  wait for clock_period;
+  wait for clock_period;
+  wait for clock_period;
+  wait for clock_period;
+  wait for clock_period;
+  left_tb <= '0'; 
+
+
+  wait for clock_period;
+  right_tb <= '1'; 
+  wait for clock_period;
+  wait for clock_period;
+  wait for clock_period;
+  wait for clock_period;
+  wait for clock_period;
+  right_tb <= '0'; 
+
+  wait for clock_period;
+  left_tb <= '1'; 
+  right_tb <= '1'; 
+  wait for clock_period;
+  wait for clock_period;
+  wait for clock_period;
+  wait for clock_period;
+  wait for clock_period;
+  left_tb <= '0'; 
+  right_tb <= '0'; 
 
   sim_end <= true;
 

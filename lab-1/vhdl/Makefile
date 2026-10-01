@@ -13,11 +13,11 @@ GTKWAVE = gtkwave
 GTKWAVE_FLAGS = --nomenus
 
 default: simulate	
-	@$(GHDL) -e $(TOP_LEVEL) # elaborate
-	@$(GHDL) -r $(TOP_LEVEL) $(R_FLAGS) # run
+	$(GHDL) -e --ieee=synopsys -fexplicit $(TOP_LEVEL) # elaborate
+	$(GHDL) -r --ieee=synopsys -fexplicit $(TOP_LEVEL) $(R_FLAGS) # run
 
 simulate:
-	@$(GHDL) -a --ieee=synopsys -fsynopsys -fexplicit $(DEPS)
+	$(GHDL) -a -fsynopsys $(DEPS)
 
 waveform: default
 	@$(GTKWAVE) $(GTKWAVE_FLAGS) -f $(WAVE_F).vcd

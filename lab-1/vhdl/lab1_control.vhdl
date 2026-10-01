@@ -28,19 +28,23 @@ architecture structural of lab1_control is
       o_q, o_qbar	: out	std_logic);
   end component;
 
+  signal int_reset : std_logic;
+
 begin 
-  s0in <= i_reset;
-  s1in <= i_left and i_right and not i_reset;
-  s2in <= i_left and not i_right and not i_reset;
-  s3in <= not i_left and i_right and not i_reset;
-  s4in <= not i_left and not i_right and not i_reset;
+  int_reset <= not i_reset;
+
+  s0in <= int_reset;
+  s1in <= i_left and i_right and not int_reset;
+  s2in <= i_left and not i_right and not int_reset;
+  s3in <= not i_left and i_right and not int_reset;
+  s4in <= not i_left and not i_right and not int_reset;
 
   o_loadLMask <= s0out; 
   o_loadRMask <= s0out;
 
   o_loadDisplay <= s0out or s1out or s2out or s3out or s4out;
-  o_shiftLMask <= s0out or s1out or s2out;
-  o_shiftRMask <= s0out or s1out or s3out;
+  o_shiftLMask <= s1out or s2out;
+  o_shiftRMask <= s1out or s3out;
 
 s0 : dFF_2
 port map (
