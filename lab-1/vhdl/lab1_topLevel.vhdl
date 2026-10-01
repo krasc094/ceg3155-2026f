@@ -87,13 +87,12 @@ int_muxSel(1) <= Left;
 int_lmaskIn <= "00000001";
 int_rmaskIn <= "10000000";
 
-clock_div: clk_div 
-	port map (
-		clock_25mhz => GClock,
-		clock_1hz	=> int_clock
-);	
-
-
+-- clock_div: clk_div 
+--	port map (
+--		clock_25mhz => GClock,
+--		clock_1hz	=> int_clock
+-- );	
+int_clock <= GClock;
 int_reset <= not GReset;
 
 control : lab1_control
