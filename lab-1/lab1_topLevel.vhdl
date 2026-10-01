@@ -118,7 +118,7 @@ lMaskReg : shiftRegister
     load => int_loadLMask,
     shiftL => int_shiftLmask,
     shiftR => zero,
-    shiftExtension => zero,
+    shiftExtension => int_lmaskOut(7),
     d => int_lmaskIn,
     o => int_lmaskOut
 );
@@ -131,7 +131,7 @@ rMaskReg : shiftRegister
     load => int_loadRMask,
     shiftL => zero,
     shiftR => int_shiftRmask,
-    shiftExtension => zero,
+    shiftExtension => int_rmaskOut(7),
     d => int_rmaskIn,
     o => int_rmaskOut
 );
