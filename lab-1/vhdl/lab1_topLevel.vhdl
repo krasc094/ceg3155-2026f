@@ -176,7 +176,7 @@ end component;
 
     signal clock_tb, reset_tb, left_tb, right_tb : std_logic;
     signal display_out_tb: std_logic_vector(7 downto 0);
-    signal sim_end: std_logic;
+    signal sim_end : BOOLEAN := false;
     constant CLOCK_PERIOD : time := 20 ns;
 
 begin 
@@ -199,4 +199,13 @@ dut: lab1_topLevel
     end loop;
     wait;
   end process clock_process;
+
+  stimulus: 
+process begin 
+  wait for clock_period;
+
+  sim_end <= true;
+
+end process stimulus;
+
 end architecture;

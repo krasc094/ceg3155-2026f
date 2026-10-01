@@ -4,7 +4,7 @@ R_FLAGS = --vcd=$(WAVE_F).vcd --wave=$(WAVE_F).ghw --stop-time=1us
 
 # === vhdl components
 DEPS = ./*.vhdl
-TOP_LEVEL = lab1_topLevel
+TOP_LEVEL = lab1_topLevel_TB
 
 WAVE_F = wave
 
@@ -17,7 +17,7 @@ default: simulate
 	@$(GHDL) -r $(TOP_LEVEL) $(R_FLAGS) # run
 
 simulate:
-	@$(GHDL) -a $(DEPS)
+	@$(GHDL) -a --ieee=synopsys -fsynopsys -fexplicit $(DEPS)
 
 waveform: default
 	@$(GTKWAVE) $(GTKWAVE_FLAGS) -f $(WAVE_F).vcd
