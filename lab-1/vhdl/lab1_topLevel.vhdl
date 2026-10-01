@@ -50,6 +50,19 @@ component lab1_control is
 
 end component;
 
+component clk_div IS
+	port (
+		clock_25mhz				: in	std_logic;
+		clock_1mhz				: out	std_logic;
+		clock_100khz				: out	std_logic;
+		clock_10khz				: out	std_logic;
+		clock_1khz				: out	std_logic;
+		clock_100hz				: out	std_logic;
+		clock_10hz				: out	std_logic;
+		clock_1hz				: out	std_logic);
+	
+end component;
+
 signal zero : std_logic;
 signal zero_8bit : std_logic_vector(7 downto 0);
 
@@ -60,6 +73,7 @@ signal int_displayIn, int_rmaskIn, int_lmaskIn : std_logic_vector(7 downto 0);
 signal int_displayOut, int_rmaskOut, int_lmaskOut, int_bothOut : std_logic_vector(7 downto 0);
 
 signal int_muxSel : std_logic_vector(1 downto 0);
+signal int_clock : std_logic;
 
 begin
 
@@ -73,9 +87,15 @@ int_muxSel(1) <= Left;
 int_lmaskIn <= "00000001";
 int_rmaskIn <= "10000000";
 
+clock_div: clk_div 
+	port map (
+		clock_25mhz => GClock,
+		clock_1hz => int_clock	
+  );
+
 control : lab1_control
  port map(
-    i_clock => GClock,
+    i_clock => int_clock,
     i_reset => GReset,
     i_left => Left,
     i_right => Right,
@@ -100,7 +120,7 @@ mux : mux4_nBit
 displayReg : shiftRegister
  generic map( n => 8 )
  port map(
-    clock => GClock,
+    clock => int_clock,
     reset => GReset,
     load => int_loadDisplay,
     shiftL => zero,
@@ -113,12 +133,16 @@ displayReg : shiftRegister
 lMaskReg : shiftRegister
  generic map( n =>  8 )
  port map(
-    clock => GClock,
+    clock => int_clock,
     reset => GReset,
     load => int_loadLMask,
     shiftL => int_shiftLmask,
     shiftR => zero,
+<<<<<<< HEAD:lab-1/lab1_topLevel.vhdl
     shiftExtension => int_lmaskOut(7),
+=======
+    shiftExtension => int_lmaskIn(7),
+>>>>>>> 6c6f0ce (clock divider):lab-1/vhdl/lab1_topLevel.vhdl
     d => int_lmaskIn,
     o => int_lmaskOut
 );
@@ -126,14 +150,59 @@ lMaskReg : shiftRegister
 rMaskReg : shiftRegister
  generic map( n => 8 )
  port map(
-    clock => GClock,
+    clock => int_clock,
     reset => GReset,
     load => int_loadRMask,
     shiftL => zero,
     shiftR => int_shiftRmask,
+<<<<<<< HEAD:lab-1/lab1_topLevel.vhdl
     shiftExtension => int_rmaskOut(7),
+=======
+    shiftExtension => int_rmaskIn(0),
+>>>>>>> 6c6f0ce (clock divider):lab-1/vhdl/lab1_topLevel.vhdl
     d => int_rmaskIn,
     o => int_rmaskOut
 );
 
+end architecture;
+
+entity lab1_topLevel_TB is
+end lab1_topLevel_TB;
+
+library ieee;
+use ieee.std_logic_1164.all;
+architecture structural of lab1_topLevel_TB is
+component lab1_topLevel is
+  port (
+    GClock : in std_logic;
+    GReset : in std_logic;
+    Left : in std_logic;
+    Right : in std_logic;
+    DisplayOut: out std_logic_vector(7 downto 0)
+  );
+end component;
+
+    signal GClock, GReset, Left, Right : std_logic;
+    signal DisplayOut: std_logic_vector(7 downto 0);
+
+begin 
+dut: lab1_topLevel
+ port map(
+    GClock => GClock,
+    GReset => GReset,
+    Left => Left,
+    Right => Right,
+    DisplayOut => DisplayOut
+);
+
+  clock_process:
+  process begin
+    while (not sim_end) loop
+      clock_tb <= '1';
+      wait for clock_period / 2;
+      clock_tb <= '0';
+      wait for clock_period / 2;
+    end loop;
+    wait;
+  end process clock_process;
 end architecture;

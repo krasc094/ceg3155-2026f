@@ -1,3 +1,0 @@
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Desktop/MyNotes/uOttawa/Year_4/Digital_System_II/Labs/lab-1/shiftReg-nbit.vhdl" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'shiftRegister'
-INFO: [VRFC 10-3107] analyzing entity 'shiftReg_TB'
