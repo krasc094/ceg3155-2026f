@@ -138,11 +138,7 @@ lMaskReg : shiftRegister
     load => int_loadLMask,
     shiftL => int_shiftLmask,
     shiftR => zero,
-<<<<<<< HEAD:lab-1/lab1_topLevel.vhdl
     shiftExtension => int_lmaskOut(7),
-=======
-    shiftExtension => int_lmaskIn(7),
->>>>>>> 6c6f0ce (clock divider):lab-1/vhdl/lab1_topLevel.vhdl
     d => int_lmaskIn,
     o => int_lmaskOut
 );
@@ -155,11 +151,7 @@ rMaskReg : shiftRegister
     load => int_loadRMask,
     shiftL => zero,
     shiftR => int_shiftRmask,
-<<<<<<< HEAD:lab-1/lab1_topLevel.vhdl
-    shiftExtension => int_rmaskOut(7),
-=======
-    shiftExtension => int_rmaskIn(0),
->>>>>>> 6c6f0ce (clock divider):lab-1/vhdl/lab1_topLevel.vhdl
+    shiftExtension => int_rmaskOut(0),
     d => int_rmaskIn,
     o => int_rmaskOut
 );
@@ -182,17 +174,19 @@ component lab1_topLevel is
   );
 end component;
 
-    signal GClock, GReset, Left, Right : std_logic;
-    signal DisplayOut: std_logic_vector(7 downto 0);
+    signal clock_tb, reset_tb, left_tb, right_tb : std_logic;
+    signal display_out_tb: std_logic_vector(7 downto 0);
+    signal sim_end: std_logic;
+    constant CLOCK_PERIOD : time := 20 ns;
 
 begin 
 dut: lab1_topLevel
  port map(
-    GClock => GClock,
-    GReset => GReset,
-    Left => Left,
-    Right => Right,
-    DisplayOut => DisplayOut
+    GClock => clock_tb,
+    GReset => reset_tb,
+    Left => left_tb,
+    Right => right_tb,
+    DisplayOut => display_out_tb
 );
 
   clock_process:
