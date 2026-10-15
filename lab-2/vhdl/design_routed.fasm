@@ -1,0 +1,26 @@
+{
+  "creator": "Next Generation Place and Route (Version bd56820)",
+  "modules": {
+    "top": {
+      "settings": {
+        "seed": "01010011010110001001011110010011",
+        "arch.type": " ",
+        "arch.name": "xilinx",
+        "router": "router2",
+        "placer": "heap",
+        "auto_freq": "00000000000000000000000000000000",
+        "slack_redist_iter": "00000000000000000000000000000000",
+        "timing_driven": "00000000000000000000000000000001",
+        "target_freq": "100000000.000000"
+      },
+      "attributes": {
+      },
+      "ports": {
+      },
+      "cells": {
+      },
+      "netnames": {
+      }
+    }
+  }
+}

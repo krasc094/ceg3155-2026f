@@ -18,6 +18,26 @@
         "type": "github"
       }
     },
+    "nix-fpga-openxc7": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1771788099,
+        "narHash": "sha256-IW6DIol5+2Z+JCoLMDhUeCgt+afk5WvWvOBkdi93bcc=",
+        "owner": "Quantum-Serendipity",
+        "repo": "nix-fpga-openxc7",
+        "rev": "919cb586ee08e8572b66146c7a1f0d7793445586",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Quantum-Serendipity",
+        "repo": "nix-fpga-openxc7",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1767313136,
@@ -37,6 +57,7 @@
     "root": {
       "inputs": {
         "flake-utils": "flake-utils",
+        "nix-fpga-openxc7": "nix-fpga-openxc7",
         "nixpkgs": "nixpkgs"
       }
     },

@@ -50,17 +50,15 @@ component lab1_control is
 
 end component;
 
-component clk_div IS
+component clockDiv_100mhz is
 	port (
-		clock_25mhz				: in	std_logic;
-		clock_1mhz				: out	std_logic;
-		clock_100khz				: out	std_logic;
-		clock_10khz				: out	std_logic;
-		clock_1khz				: out	std_logic;
-		clock_100hz				: out	std_logic;
-		clock_10hz				: out	std_logic;
-		clock_1hz				: out	std_logic);
-	
+		i_clk_100mhz : in	std_logic;
+    o_clk_25Mhz : out std_logic;
+
+    o_clk_20hz : out std_logic;
+    o_clk_10hz : out std_logic;
+    o_clk_5hz : out std_logic
+  );
 end component;
 
 signal zero : std_logic;
@@ -92,8 +90,14 @@ int_rmaskIn <= "10000000";
 --		clock_25mhz => GClock,
 --		clock_1hz	=> int_clock
 -- );	
-int_clock <= GClock;
-int_reset <= not GReset;
+
+clock_div: clockDiv_100mhz
+	port map (
+		i_clk_100mhz => GClock,
+    o_clk_20hz => int_clock
+  );
+-- int_clock <= GClock;
+int_reset <= GReset;
 
 control : lab1_control
  port map(
