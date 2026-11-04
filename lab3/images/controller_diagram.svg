@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+     width="1000" height="800" viewBox="0 0 1000 800" font-family="Arial, Helvetica, sans-serif" font-size="11">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="8" markerHeight="8"
+            markerUnits="userSpaceOnUse" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker>
+  </defs>
+  <rect id="background" width="1000" height="800" fill="#ffffff"/>
+  <g id="frame" inkscape:groupmode="layer" inkscape:label="Frame">
+        <rect x="150" y="40" width="760" height="740" fill="none" stroke="#000" stroke-width="1.4"/>
+    <rect x="150" y="40" width="760" height="24" fill="#eeeeee" stroke="#000" stroke-width="1.4"/>
+    <text x="530" y="57" text-anchor="middle" font-size="13" font-weight="bold">trafficLightController</text>
+  </g>
+  <g id="wires" inkscape:groupmode="layer" inkscape:label="Wires" fill="none" stroke="#000" stroke-width="1.4">
+    <path d="M30,125 H380" marker-end="url(#arrow)"/>
+    <path d="M30,155 H380" marker-end="url(#arrow)"/>
+    <path d="M30,185 H380" marker-end="url(#arrow)"/>
+    <path d="M580,110 H960" stroke-width="3" marker-end="url(#arrow)"/>
+    <path d="M580,140 H960" stroke-width="3" marker-end="url(#arrow)"/>
+    <path d="M580,190 H650" stroke-width="3"/>
+    <path d="M30,258 H230"/>
+    <path d="M195,272 H230"/>
+    <path d="M260,265 H300" marker-end="url(#arrow)"/>
+    <path d="M286,295 H300" marker-end="url(#arrow)"/>
+    <path d="M232,295 H262"/>
+    <path d="M410,270 H470" stroke-width="3" marker-end="url(#arrow)"/>
+    <path d="M30,322 H445 V295 H470" stroke-width="3" marker-end="url(#arrow)"/>
+    <path d="M30,373 H230"/>
+    <path d="M195,387 H230"/>
+    <path d="M260,380 H300" marker-end="url(#arrow)"/>
+    <path d="M275,410 H300" marker-end="url(#arrow)"/>
+    <path d="M410,385 H470" stroke-width="3" marker-end="url(#arrow)"/>
+    <path d="M445,445 V410 H470" stroke-width="3" marker-end="url(#arrow)"/>
+    <path d="M30,488 H230"/>
+    <path d="M195,502 H230"/>
+    <path d="M260,495 H300" marker-end="url(#arrow)"/>
+    <path d="M275,525 H300" marker-end="url(#arrow)"/>
+    <path d="M410,500 H470" stroke-width="3" marker-end="url(#arrow)"/>
+    <path d="M30,552 H445 V525 H470" stroke-width="3" marker-end="url(#arrow)"/>
+    <path d="M30,603 H230"/>
+    <path d="M195,617 H230"/>
+    <path d="M260,610 H300" marker-end="url(#arrow)"/>
+    <path d="M275,640 H300" marker-end="url(#arrow)"/>
+    <path d="M410,615 H470" stroke-width="3" marker-end="url(#arrow)"/>
+    <path d="M445,675 V640 H470" stroke-width="3" marker-end="url(#arrow)"/>
+    <path d="M580,280 H640 V430 H702"/>
+    <path d="M580,395 H625 V445 H702"/>
+    <path d="M580,510 H625 V460 H702"/>
+    <path d="M580,625 H640 V475 H702"/>
+    <path d="M760,452 H800 V72 H355 V100 H380" marker-end="url(#arrow)"/>
+    <path d="M640,705 H702" stroke-width="3"/>
+    <path d="M640,718 H702" stroke-width="3"/>
+    <path d="M640,731 H702" stroke-width="3"/>
+    <path d="M640,744 H702" stroke-width="3"/>
+    <path d="M760,725 H785" stroke-width="3" marker-end="url(#arrow)"/>
+    <path d="M880,712 H960" stroke-width="3" marker-end="url(#arrow)"/>
+    <path d="M880,738 H960" stroke-width="3" marker-end="url(#arrow)"/>
+  </g>
+  <g id="blocks" inkscape:groupmode="layer" inkscape:label="Blocks" fill="#ffffff" stroke="#000" stroke-width="1.4">
+    <rect x="380" y="88" width="200" height="120"/>
+    <path d="M230,250 H245 A15,15 0 0 1 245,280 H230 Z"/>
+    <rect x="300" y="250" width="110" height="60"/>
+    <path d="M262,287 L280,295 L262,303 Z"/>
+    <circle cx="283" cy="295" r="3"/>
+    <rect x="470" y="250" width="110" height="60"/>
+    <path d="M230,365 H245 A15,15 0 0 1 245,395 H230 Z"/>
+    <rect x="300" y="365" width="110" height="60"/>
+    <rect x="470" y="365" width="110" height="60"/>
+    <path d="M230,480 H245 A15,15 0 0 1 245,510 H230 Z"/>
+    <rect x="300" y="480" width="110" height="60"/>
+    <rect x="470" y="480" width="110" height="60"/>
+    <path d="M230,595 H245 A15,15 0 0 1 245,625 H230 Z"/>
+    <rect x="300" y="595" width="110" height="60"/>
+    <rect x="470" y="595" width="110" height="60"/>
+    <path d="M690,410 Q728,410 760,452 Q728,495 690,495 Q710,452 690,410 Z"/>
+    <path d="M690,690 Q728,690 760,725 Q728,760 690,760 Q710,725 690,690 Z"/>
+    <rect x="785" y="695" width="95" height="60"/>
+  </g>
+  <g id="labels" inkscape:groupmode="layer" inkscape:label="Labels">
+    <text x="490" y="128" text-anchor="middle" font-size="15" font-weight="bold">FSM</text>
+    <text x="490" y="148" text-anchor="middle" font-size="10">state register: 4 x enARdFF_2</text>
+    <text x="490" y="162" text-anchor="middle" font-size="10">y0 stored inverted (reset = S0)</text>
+    <text x="490" y="176" text-anchor="middle" font-size="10">next-state and output logic</text>
+    <text x="386" y="104" font-size="9">g</text>
+    <text x="386" y="129" font-size="9">C</text>
+    <text x="386" y="159" font-size="9">clk</text>
+    <text x="386" y="189" font-size="9">rst</text>
+    <text x="34" y="120">SSCS</text>
+    <text x="34" y="150">GClock</text>
+    <text x="34" y="180">GReset</text>
+    <text x="916" y="105">MSTL[2..0]</text>
+    <text x="916" y="135">SSTL[2..0]</text>
+    <text x="588" y="184" fill="#2e7d32">y[3..0]</text>
+    <text x="34" y="253">GReset</text>
+    <text x="192" y="276" text-anchor="end" fill="#2e7d32">y0</text>
+    <text x="355" y="277" text-anchor="middle" font-size="12" font-weight="bold">counter4</text>
+    <text x="355" y="293" text-anchor="middle" font-size="10">Main Green</text>
+    <text x="304" y="269" font-size="9">rst</text>
+    <text x="304" y="299" font-size="9">en</text>
+    <text x="229" y="299" text-anchor="end" fill="#1565c0">gteq_MG</text>
+    <text x="440" y="264" text-anchor="middle" font-size="10" fill="#e65100">cnt_MG</text>
+    <text x="525" y="277" text-anchor="middle" font-size="12" font-weight="bold">comparator4</text>
+    <text x="525" y="293" text-anchor="middle" font-size="10">A &#8805; B</text>
+    <text x="474" y="274" font-size="9">A</text>
+    <text x="474" y="299" font-size="9">B</text>
+    <text x="34" y="317">MSC[3..0]</text>
+    <text x="586" y="275" font-size="10" fill="#1565c0">gteq_MG</text>
+    <text x="34" y="368">GReset</text>
+    <text x="192" y="391" text-anchor="end" fill="#2e7d32">y1</text>
+    <text x="355" y="392" text-anchor="middle" font-size="12" font-weight="bold">counter4</text>
+    <text x="355" y="408" text-anchor="middle" font-size="10">Main Yellow</text>
+    <text x="304" y="384" font-size="9">rst</text>
+    <text x="304" y="414" font-size="9">en</text>
+    <text x="271" y="414" text-anchor="end">1</text>
+    <text x="440" y="379" text-anchor="middle" font-size="10" fill="#e65100">cnt_MY</text>
+    <text x="525" y="392" text-anchor="middle" font-size="12" font-weight="bold">comparator4</text>
+    <text x="525" y="408" text-anchor="middle" font-size="10">A &#8805; B</text>
+    <text x="474" y="389" font-size="9">A</text>
+    <text x="474" y="414" font-size="9">B</text>
+    <text x="445" y="458" text-anchor="middle" font-size="10">MT = 0101</text>
+    <text x="586" y="390" font-size="10" fill="#1565c0">gteq_MY</text>
+    <text x="34" y="483">GReset</text>
+    <text x="192" y="506" text-anchor="end" fill="#2e7d32">y2</text>
+    <text x="355" y="507" text-anchor="middle" font-size="12" font-weight="bold">counter4</text>
+    <text x="355" y="523" text-anchor="middle" font-size="10">Side Green</text>
+    <text x="304" y="499" font-size="9">rst</text>
+    <text x="304" y="529" font-size="9">en</text>
+    <text x="271" y="529" text-anchor="end">1</text>
+    <text x="440" y="494" text-anchor="middle" font-size="10" fill="#e65100">cnt_SG</text>
+    <text x="525" y="507" text-anchor="middle" font-size="12" font-weight="bold">comparator4</text>
+    <text x="525" y="523" text-anchor="middle" font-size="10">A &#8805; B</text>
+    <text x="474" y="504" font-size="9">A</text>
+    <text x="474" y="529" font-size="9">B</text>
+    <text x="34" y="547">SSC[3..0]</text>
+    <text x="586" y="505" font-size="10" fill="#1565c0">gteq_SG</text>
+    <text x="34" y="598">GReset</text>
+    <text x="192" y="621" text-anchor="end" fill="#2e7d32">y3</text>
+    <text x="355" y="622" text-anchor="middle" font-size="12" font-weight="bold">counter4</text>
+    <text x="355" y="638" text-anchor="middle" font-size="10">Side Yellow</text>
+    <text x="304" y="614" font-size="9">rst</text>
+    <text x="304" y="644" font-size="9">en</text>
+    <text x="271" y="644" text-anchor="end">1</text>
+    <text x="440" y="609" text-anchor="middle" font-size="10" fill="#e65100">cnt_SY</text>
+    <text x="525" y="622" text-anchor="middle" font-size="12" font-weight="bold">comparator4</text>
+    <text x="525" y="638" text-anchor="middle" font-size="10">A &#8805; B</text>
+    <text x="474" y="619" font-size="9">A</text>
+    <text x="474" y="644" font-size="9">B</text>
+    <text x="445" y="688" text-anchor="middle" font-size="10">SST = 0011</text>
+    <text x="586" y="620" font-size="10" fill="#1565c0">gteq_SY</text>
+    <text x="808" y="300" font-weight="bold">g</text>
+    <text x="808" y="316" font-size="10">(counter_gteq)</text>
+    <text x="636" y="709" text-anchor="end" font-size="10" fill="#e65100">cnt_MG</text>
+    <text x="636" y="722" text-anchor="end" font-size="10" fill="#e65100">cnt_MY</text>
+    <text x="636" y="735" text-anchor="end" font-size="10" fill="#e65100">cnt_SG</text>
+    <text x="636" y="748" text-anchor="end" font-size="10" fill="#e65100">cnt_SY</text>
+    <text x="772" y="772" text-anchor="middle" font-size="10">activeCount</text>
+    <text x="832" y="721" text-anchor="middle" font-size="11" font-weight="bold">hex_bcd</text>
+    <text x="832" y="735" text-anchor="middle" font-size="11" font-weight="bold">decoder</text>
+    <text x="916" y="707">BCD1[3..0]</text>
+    <text x="916" y="733">BCD2[3..0]</text>
+    <text x="160" y="772" font-size="10" font-style="italic">GClock also drives the four counters (not drawn). Coloured names connect by label.</text>
+  </g>
+</svg>

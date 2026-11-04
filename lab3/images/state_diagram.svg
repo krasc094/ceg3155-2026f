@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+     width="720" height="540" viewBox="0 0 720 540" font-family="Arial, Helvetica, sans-serif" font-size="11">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="9" markerHeight="9"
+            markerUnits="userSpaceOnUse" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker>
+  </defs>
+  <rect id="background" width="720" height="540" fill="#ffffff"/>
+  <g id="arrows" inkscape:groupmode="layer" inkscape:label="Arrows" fill="none" stroke="#000" stroke-width="1.5">
+    <path d="M278,160 H462" marker-end="url(#arrow)"/>
+    <path d="M550,206 V344" marker-end="url(#arrow)"/>
+    <path d="M462,390 H278" marker-end="url(#arrow)"/>
+    <path d="M190,344 V206" marker-end="url(#arrow)"/>
+    <path d="M168,115 C140,45 240,45 212,115" marker-end="url(#arrow)"/>
+    <path d="M528,115 C500,45 600,45 572,115" marker-end="url(#arrow)"/>
+    <path d="M528,435 C500,505 600,505 572,435" marker-end="url(#arrow)"/>
+    <path d="M168,435 C140,505 240,505 212,435" marker-end="url(#arrow)"/>
+    <path d="M30,160 H102" marker-end="url(#arrow)"/>
+  </g>
+  <g id="states" inkscape:groupmode="layer" inkscape:label="States" fill="#fdf1e3" stroke="#000" stroke-width="1.5">
+    <ellipse cx="190" cy="160" rx="88" ry="46"/>
+    <ellipse cx="550" cy="160" rx="88" ry="46"/>
+    <ellipse cx="550" cy="390" rx="88" ry="46"/>
+    <ellipse cx="190" cy="390" rx="88" ry="46"/>
+  </g>
+  <g id="labels" inkscape:groupmode="layer" inkscape:label="Labels">
+    <text x="190" y="152" text-anchor="middle" font-size="13" font-weight="bold">S0: MainGreen</text>
+    <text x="190" y="172" text-anchor="middle" font-size="11">MSTL = 100</text>
+    <text x="190" y="187" text-anchor="middle" font-size="11">SSTL = 001</text>
+    <text x="550" y="152" text-anchor="middle" font-size="13" font-weight="bold">S1: MainYellow</text>
+    <text x="550" y="172" text-anchor="middle" font-size="11">MSTL = 010</text>
+    <text x="550" y="187" text-anchor="middle" font-size="11">SSTL = 001</text>
+    <text x="550" y="382" text-anchor="middle" font-size="13" font-weight="bold">S2: SideGreen</text>
+    <text x="550" y="402" text-anchor="middle" font-size="11">MSTL = 001</text>
+    <text x="550" y="417" text-anchor="middle" font-size="11">SSTL = 100</text>
+    <text x="190" y="382" text-anchor="middle" font-size="13" font-weight="bold">S3: SideYellow</text>
+    <text x="190" y="402" text-anchor="middle" font-size="11">MSTL = 001</text>
+    <text x="190" y="417" text-anchor="middle" font-size="11">SSTL = 010</text>
+    <text x="370" y="150" text-anchor="middle" font-size="12">g·C</text>
+    <text x="560" y="280" text-anchor="start" font-size="12">g</text>
+    <text x="370" y="410" text-anchor="middle" font-size="12">g</text>
+    <text x="180" y="280" text-anchor="end" font-size="12">g</text>
+    <text x="190" y="50" text-anchor="middle" font-size="12">(g·C)'</text>
+    <text x="550" y="50" text-anchor="middle" font-size="12">g'</text>
+    <text x="550" y="525" text-anchor="middle" font-size="12">g'</text>
+    <text x="190" y="525" text-anchor="middle" font-size="12">g'</text>
+    <text x="30" y="150" text-anchor="start" font-size="11">GReset = 0</text>
+    <text x="360" y="280" text-anchor="middle" font-size="10" font-style="italic">g = timer reached its limit, C = car on the side street (SSCS)</text>
+  </g>
+</svg>

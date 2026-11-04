@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Vivado v2022.1 (64-bit)
+# SW Build 3526262 on Mon Apr 18 15:48:16 MDT 2022
+# IP Build 3524634 on Mon Apr 18 20:55:01 MDT 2022
+# Start of session at: Wed Nov  4 16:30:40 2026
+# Process ID: 3968
+# Current directory: C:/Desktop/MyNotes/uOttawa/Year_4/Digital_System_II/Labs/Mythingy/lab3/lab3/lab3.runs/impl_1
+# Command line: vivado.exe -log TopLevel_trafficLightBoard.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source TopLevel_trafficLightBoard.tcl -notrace
+# Log file: C:/Desktop/MyNotes/uOttawa/Year_4/Digital_System_II/Labs/Mythingy/lab3/lab3/lab3.runs/impl_1/TopLevel_trafficLightBoard.vdi
+# Journal file: C:/Desktop/MyNotes/uOttawa/Year_4/Digital_System_II/Labs/Mythingy/lab3/lab3/lab3.runs/impl_1\vivado.jou
+# Running On: LAPTOP-A2HDTBM1, OS: Windows, CPU Frequency: 1800 MHz, CPU Physical cores: 4, Host memory: 8325 MB
+#-----------------------------------------------------------
+source TopLevel_trafficLightBoard.tcl -notrace

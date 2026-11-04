@@ -1,0 +1,93 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+-------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2022.1 (win64) Build 3526262 Mon Apr 18 15:48:16 MDT 2022
+| Date         : Wed Nov  4 16:24:56 2026
+| Host         : LAPTOP-A2HDTBM1 running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file TopLevel_trafficLightBoard_control_sets_placed.rpt
+| Design       : TopLevel_trafficLightBoard
+| Device       : xc7a100t
+-------------------------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |    15 |
+|    Minimum number of control sets                        |    15 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |    63 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |    15 |
+| >= 0 to < 4        |     3 |
+| >= 4 to < 6        |    11 |
+| >= 6 to < 8        |     1 |
+| >= 8 to < 10       |     0 |
+| >= 10 to < 12      |     0 |
+| >= 12 to < 14      |     0 |
+| >= 14 to < 16      |     0 |
+| >= 16              |     0 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |              29 |            9 |
+| No           | No                    | Yes                    |              17 |            6 |
+| No           | Yes                   | No                     |               7 |            2 |
+| Yes          | No                    | No                     |               0 |            0 |
+| Yes          | No                    | Yes                    |               4 |            1 |
+| Yes          | Yes                   | No                     |               0 |            0 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++-------------------------------+------------------------------------------+--------------------------+------------------+----------------+--------------+
+|          Clock Signal         |               Enable Signal              |     Set/Reset Signal     | Slice Load Count | Bel Load Count | Bels / Slice |
++-------------------------------+------------------------------------------+--------------------------+------------------+----------------+--------------+
+|  CLKDIV_INST/clock_1KHz       |                                          | FSM_INST/FF3/CPU_RESETN  |                1 |              1 |         1.00 |
+|  CLKDIV_INST/s_1Hz            |                                          |                          |                1 |              2 |         2.00 |
+|  CLK100MHZ_IBUF_BUFG          |                                          |                          |                2 |              3 |         1.50 |
+|  CLKDIV_INST/clock_100hz_int  |                                          |                          |                1 |              4 |         4.00 |
+|  CLKDIV_INST/clock_1Mhz_int   |                                          |                          |                1 |              4 |         4.00 |
+|  CLKDIV_INST/clock_10Hz_int   |                                          |                          |                1 |              4 |         4.00 |
+|  CLKDIV_INST/clock_10Khz_int  |                                          |                          |                1 |              4 |         4.00 |
+|  CLKDIV_INST/s_1Hz            |                                          | FSM_INST/FF2/int_q_reg_1 |                1 |              4 |         4.00 |
+|  CLKDIV_INST/s_1Hz            |                                          | FSM_INST/FF3/CPU_RESETN  |                1 |              4 |         4.00 |
+|  CLKDIV_INST/s_1Hz            |                                          | FSM_INST/FF1/int_q_reg_1 |                2 |              4 |         2.00 |
+|  CLKDIV_INST/s_1Hz            |                                          | FSM_INST/FF3/int_q_reg_1 |                1 |              4 |         4.00 |
+|  CLKDIV_INST/s_1Hz            | FSM_INST/C_MG/GEN_FF[2].FF_i/int_q_reg_1 | FSM_INST/FF0/int_q_reg_0 |                1 |              4 |         4.00 |
+|  CLKDIV_INST/clock_100Khz_int |                                          |                          |                1 |              4 |         4.00 |
+|  CLKDIV_INST/clock_1Khz_int   |                                          |                          |                1 |              4 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG          |                                          | CLKDIV_INST/clear        |                2 |              7 |         3.50 |
++-------------------------------+------------------------------------------+--------------------------+------------------+----------------+--------------+
+
+

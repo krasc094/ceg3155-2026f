@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+     width="1000" height="430" viewBox="0 0 1000 430" font-family="Arial, Helvetica, sans-serif" font-size="11">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="8" markerHeight="8"
+            markerUnits="userSpaceOnUse" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#000"/></marker>
+  </defs>
+  <rect id="background" width="1000" height="430" fill="#ffffff"/>
+  <g id="frame" inkscape:groupmode="layer" inkscape:label="Frame">
+    <rect x="140" y="40" width="770" height="380" fill="none" stroke="#000" stroke-width="1.4"/>
+    <rect x="140" y="40" width="770" height="24" fill="#eeeeee" stroke="#000" stroke-width="1.4"/>
+    <text x="525" y="57" text-anchor="middle" font-size="13" font-weight="bold">TopLevel_trafficLightBoard (Nexys A7)</text>
+  </g>
+  <g id="wires" inkscape:groupmode="layer" inkscape:label="Wires" fill="none" stroke="#000" stroke-width="1.4">
+    <path d="M20,140 H190" marker-end="url(#arrow)"/>
+    <path d="M20,250 H360" marker-end="url(#arrow)"/>
+    <path d="M310,110 H540" marker-end="url(#arrow)"/>
+    <path d="M340,110 V275 H360" marker-end="url(#arrow)"/>
+    <path d="M310,170 H325 V400 H715 V250 H740" marker-end="url(#arrow)"/>
+    <path d="M470,260 H540" marker-end="url(#arrow)"/>
+    <path d="M20,310 H540" stroke-width="3" marker-end="url(#arrow)"/>
+    <path d="M20,335 H540" stroke-width="3" marker-end="url(#arrow)"/>
+    <path d="M20,380 H725 V316 H740" marker-end="url(#arrow)"/>
+    <path d="M520,380 V150 H540" marker-end="url(#arrow)"/>
+    <path d="M690,110 H960" stroke-width="3" marker-end="url(#arrow)"/>
+    <path d="M690,140 H960" stroke-width="3" marker-end="url(#arrow)"/>
+    <path d="M690,272 H740" stroke-width="3" marker-end="url(#arrow)"/>
+    <path d="M690,294 H740" stroke-width="3" marker-end="url(#arrow)"/>
+    <path d="M860,265 H960" stroke-width="3" marker-end="url(#arrow)"/>
+    <path d="M860,300 H960" stroke-width="3" marker-end="url(#arrow)"/>
+    <circle cx="340" cy="110" r="3.5" fill="#000"/>
+    <circle cx="520" cy="380" r="3.5" fill="#000"/>
+  </g>
+  <g id="blocks" inkscape:groupmode="layer" inkscape:label="Blocks" fill="#ffffff" stroke="#000" stroke-width="1.4">
+    <rect x="190" y="80" width="120" height="120"/>
+    <rect x="360" y="230" width="110" height="60"/>
+    <rect x="540" y="80" width="150" height="280"/>
+    <rect x="740" y="230" width="120" height="105"/>
+  </g>
+  <g id="labels" inkscape:groupmode="layer" inkscape:label="Labels">
+    <text x="240" y="145" text-anchor="middle" font-size="12" font-weight="bold">clk_div</text>
+    <text x="304" y="114" text-anchor="end" font-size="9">1 Hz</text>
+    <text x="304" y="174" text-anchor="end" font-size="9">1 kHz</text>
+    <text x="24" y="135">CLK100MHZ</text>
+    <text x="425" y="264" text-anchor="middle" font-size="12" font-weight="bold">debouncer</text>
+    <text x="364" y="254" font-size="9">raw</text>
+    <text x="364" y="279" font-size="9">clk</text>
+    <text x="24" y="245">BTNC (car)</text>
+    <text x="615" y="205" text-anchor="middle" font-size="12" font-weight="bold">trafficLight</text>
+    <text x="615" y="220" text-anchor="middle" font-size="12" font-weight="bold">Controller</text>
+    <text x="546" y="114" font-size="9">GClock</text>
+    <text x="546" y="154" font-size="9">GReset</text>
+    <text x="546" y="264" font-size="9">SSCS</text>
+    <text x="546" y="314" font-size="9">MSC</text>
+    <text x="546" y="339" font-size="9">SSC</text>
+    <text x="684" y="114" text-anchor="end" font-size="9">MSTL</text>
+    <text x="684" y="144" text-anchor="end" font-size="9">SSTL</text>
+    <text x="684" y="276" text-anchor="end" font-size="9">BCD1</text>
+    <text x="684" y="298" text-anchor="end" font-size="9">BCD2</text>
+    <text x="800" y="224" text-anchor="middle" font-size="12" font-weight="bold">sevenSeg</text>
+    <text x="746" y="254" font-size="9">clk</text>
+    <text x="746" y="276" font-size="9">bcd1</text>
+    <text x="746" y="298" font-size="9">bcd2</text>
+    <text x="746" y="320" font-size="9">rst</text>
+    <text x="854" y="269" text-anchor="end" font-size="9">AN</text>
+    <text x="854" y="304" text-anchor="end" font-size="9">SEG</text>
+    <text x="420" y="104" text-anchor="middle" font-size="10">1 Hz</text>
+    <text x="520" y="395" text-anchor="middle" font-size="10">1 kHz</text>
+    <text x="24" y="305">SW[7..4] (MSC)</text>
+    <text x="24" y="330">SW[3..0] (SSC)</text>
+    <text x="24" y="375">CPU_RESETN</text>
+    <text x="916" y="105">LED[5..3]</text>
+    <text x="916" y="135">LED[2..0]</text>
+    <text x="916" y="260">AN[7..0]</text>
+    <text x="916" y="295">SEG[6..0]</text>
+    <text x="150" y="413" font-size="10" font-style="italic">clk_div and debouncer are course-provided. CPU_RESETN is the global reset (active low).</text>
+  </g>
+</svg>
