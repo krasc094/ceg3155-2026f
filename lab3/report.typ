@@ -74,7 +74,7 @@
 #set page(numbering: "-1-", number-align: center)
 #counter(page).update(1)
 
-#outline(title: [Table of content], depth: 2)
+#outline(title: [Table of contents], depth: 2)
 
 #pagebreak()
 
@@ -157,11 +157,10 @@ With equivalence-class partitioning, $Pi_1$ groups the states that have the same
   caption: [State assignment],
 )
 
-We chose one-hot encoding because it is the best ;+)
+We chose one hot encoding because each state has its own flip flop, so the lights come directly from the state bits without any decoding (for example $"MSTL"(2) = y_0$). The next state equations are also simpler, since each state only depends on the state before it, $g$ and $C$. The state bits are also used directly to reset the timers of each state. The downside is that it needs 4 flip flops instead of 2, but an FPGA has a lot of flip flops so this is not a problem.
 
 == Transition Table
 
-== Transition Table
 #figure(
   table(
     columns: 3,
@@ -249,13 +248,90 @@ $ "SSTL"(2) = y_2, quad "SSTL"(1) = y_3, quad "SSTL"(0) = y_0 + y_1 $
 $ "ResetMG" = y_0 dot "GReset", quad "ResetMY" = y_1 dot "GReset", quad "ResetSG" = y_2 dot "GReset", quad "ResetSY" = y_3 dot "GReset" $
 $ "EnableMG" = overline("gteq_MG"), quad g = "gteq_MG" + "gteq_MY" + "gteq_SG" + "gteq_SY" $
 
-*BCD decoder (bonus),* with $s_3 s_2 s_1 s_0$ the 4-bit count and $"BCD1"(3..1) = 000$:
+*BCD decoder (bonus):* $s_3 s_2 s_1 s_0$ is the 4-bit count, BCD1 is the tens digit and BCD2 is the ones digit.
+
+#figure(
+  table(
+    columns: 4,
+    align: center,
+    inset: 4pt,
+    table.header([*Count*], [*$s_3 s_2 s_1 s_0$*], [*BCD1*], [*BCD2*]),
+    [0],  [0000], [0000], [0000],
+    [1],  [0001], [0000], [0001],
+    [2],  [0010], [0000], [0010],
+    [3],  [0011], [0000], [0011],
+    [4],  [0100], [0000], [0100],
+    [5],  [0101], [0000], [0101],
+    [6],  [0110], [0000], [0110],
+    [7],  [0111], [0000], [0111],
+    [8],  [1000], [0000], [1000],
+    [9],  [1001], [0000], [1001],
+    [10], [1010], [0001], [0000],
+    [11], [1011], [0001], [0001],
+    [12], [1100], [0001], [0010],
+    [13], [1101], [0001], [0011],
+    [14], [1110], [0001], [0100],
+    [15], [1111], [0001], [0101],
+  ),
+  caption: [Hex to BCD truth table],
+)
+
+The counter needs 4 bits to represent all 16 possible numbers (0 to 15), so there are no don't cares. $"BCD1"(3..1)$ is always 000, so only $"BCD1"(0)$ needs a K-map. $"BCD2"(0) = s_0$ because taking away 10 does not change if the number is odd or even, so it does not need one either.
+
+#grid(
+  columns: 2,
+  gutter: 16pt,
+  figure(
+    kmap([$s_3 s_2$ / $s_1 s_0$], ("00", "01", "11", "10"), (
+      ([*00*], [0], [0], [0], [0]),
+      ([*01*], [0], [0], [0], [0]),
+      ([*11*], [1], [1], [1], [1]),
+      ([*10*], [0], [0], [1], [1]),
+    )),
+    caption: [$"BCD1"(0)$: groups $s_3 s_2$ and $s_3 s_1$],
+  ),
+  figure(
+    kmap([$s_3 s_2$ / $s_1 s_0$], ("00", "01", "11", "10"), (
+      ([*00*], [0], [0], [0], [0]),
+      ([*01*], [0], [0], [0], [0]),
+      ([*11*], [0], [0], [0], [0]),
+      ([*10*], [1], [1], [0], [0]),
+    )),
+    caption: [$"BCD2"(3)$: group $s_3 overline(s_2) overline(s_1)$],
+  ),
+  figure(
+    kmap([$s_3 s_2$ / $s_1 s_0$], ("00", "01", "11", "10"), (
+      ([*00*], [0], [0], [0], [0]),
+      ([*01*], [1], [1], [1], [1]),
+      ([*11*], [0], [0], [1], [1]),
+      ([*10*], [0], [0], [0], [0]),
+    )),
+    caption: [$"BCD2"(2)$: groups $overline(s_3) s_2$ and $s_2 s_1$],
+  ),
+  figure(
+    kmap([$s_3 s_2$ / $s_1 s_0$], ("00", "01", "11", "10"), (
+      ([*00*], [0], [0], [1], [1]),
+      ([*01*], [0], [0], [1], [1]),
+      ([*11*], [1], [1], [0], [0]),
+      ([*10*], [0], [0], [0], [0]),
+    )),
+    caption: [$"BCD2"(1)$: groups $overline(s_3) s_1$ and $s_3 s_2 overline(s_1)$],
+  ),
+)
+
+From the K-maps, we get
 $ "BCD1"(0) = s_3 s_2 + s_3 s_1 $
 $ "BCD2"(3) = s_3 overline(s_2) overline(s_1), quad "BCD2"(2) = overline(s_3) s_2 + s_2 s_1, quad "BCD2"(1) = overline(s_3) s_1 + s_3 s_2 overline(s_1), quad "BCD2"(0) = s_0 $
 
 == Circuit Implementation
 
+#fig("images/board_diagram.svg", [Top level on the Nexys A7])
 
+The circuit is done in structural VHDL, using the components given by the course and our own components. The state register is 4 `enARdFF_2` flip flops, one for each state, clocked by `GClock` and reset by `GReset`. The next state equations $Y_0$ to $Y_3$ and the light outputs are done with AND, OR and NOT gates, directly from the design equations. Flip flop 0 gets $overline(Y_0)$ and its output is inverted again to give $y_0$, so the reset puts the FSM in S0.
+
+The four timers are built the same way. Each `counter4` is 4 `enARdFF_2` flip flops and an `adder4` that adds 1 to the count at every clock. The `adder4` is a chain of 4 `oneBitAdder`. Each `comparator4` is a chain of 4 `oneBitComparator` starting from the most significant bit, and gteq is the inverse of lt. The hex to BCD decoder is made of gates from the BCD equations above.
+
+The top level connects the controller to the board. The 100 MHz clock goes into `clk_div`, which gives 1 Hz for the controller and the debouncer, and 1 kHz for the display. The car button `BTNC` goes through the debouncer before going to `SSCS`. `CPU_RESETN` is the global reset (active low) and goes to the controller and the display. The switches `SW[7..4]` and `SW[3..0]` give `MSC` and `SSC`, and the lights go to `LED[5..3]` for the main street and `LED[2..0]` for the side street. The display driver `sevenSeg` switches between the two digits at 1 kHz to show `BCD1` and `BCD2`. The pins are set in the constraints file `lab3_fsm.xdc`.
 
 = Discussion of Used Components
 
@@ -279,6 +355,17 @@ Everything is structural RTL VHDL; only the course flip-flop and clock divider a
 
 #fig("images/controller_diagram.svg", [Traffic light controller block diagram])
 
+#fig("images/flowchart.svg", [Flowchart of the solution], width: 35%)
+
+Our solution is a Moore FSM with 4 states, main green (S0), main yellow (S1), side green (S2) and side yellow (S3). We used one hot encoding, so each state has its own flip flop ($y_0$ to $y_3$) and the lights come directly from the state bits. $y_0$ is stored inverted, so when `GReset` is pressed all the flip flops go to 0 and the FSM starts in S0 with the main street green and the side street red.
+
+Each state has its own timer made of a `counter4` and a `comparator4`. A timer only counts when its state is active, because its reset is the state bit AND `GReset`. The other three timers stay at 0. The comparator checks if the count reached the limit. `MSC` and `SSC` come from the switches and the yellow times are fixed in the code (`MT` = 5 and `SST` = 3). The comparator outputs are combined into $g$, which tells the FSM that the time of the current state is over.
+
+When $g$ is 1, the FSM goes to the next state. The only exception is the main green, which only goes to yellow if $g$ is 1 and there is a car ($C$). If there is no car, the main green counter stops at `MSC` because its enable is $overline("gteq_MG")$, and the light stays green until a car arrives.
+
+For the bonus, the four counts are OR'ed together into `activeCount`. Since only one counter runs at a time, this is basically the count of the current state. The hex to BCD decoder splits it into the tens (`BCD1`) and the ones (`BCD2`), which are shown on the display.
+
+On the board, the top level adds the clock divider (1 Hz for the controller and 1 kHz for the display), the debouncer for the car button and the `sevenSeg`.
 
 = Discussion of Tool
 
@@ -286,6 +373,7 @@ We simulated everything with GHDL and looked at the waveforms (`.ghw`) in GTKWav
 
 = Discussion of Challenging Problems
 
+We had two main problems. First, the synthesis in Vivado failed with a system resources error. It was not from our code but from Vivado and Windows, and it worked after restarting the computer and running it again. Second, the anodes of the 7-segment display were confusing to use as a selector for the digit number. All 8 digits share the same segment pins, so the anodes are basically used to choose which digit is on. A flip-flop switches between the two digits at 1 kHz, which is fast enough that both look on at the same time.
 
 
 = Simulation Results
@@ -356,13 +444,13 @@ Every component has a testbench that applies the cases below. We compared the wa
   caption: [Expected and simulated phase lengths],
 )
 
-*Live demonstration.* #todo[result of the demo on the Nexys A7]
+We were able to present the demonstration by uploading the code via Vivado. We were able to confirm the waveform that we got during the simulations.
 
 = Discussion
 
+The design worked in simulation and on the FPGA board in the lab. The limitations are that `MSC` and `SSC` cannot be 0, that each phase lasts one cycle longer than its limit, and that the car has to be present (button held) when the main green time is over.
 
-
-The limitations are that `MSC` and `SSC` cannot be 0, that each phase lasts one cycle longer than its limit, and that the car has to be present (button held) when the main green time is over.
+A possible improvement would be to lower the debounce time, so we do not have to press the button so long.
 
 = Appendix: VHDL Code
 
