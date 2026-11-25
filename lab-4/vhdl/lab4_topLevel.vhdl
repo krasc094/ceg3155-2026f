@@ -93,15 +93,12 @@ end component;
   signal int_enableCounter : std_logic;
   signal int_resetCounter : std_logic;
 
-  signal nine : std_logic_vector(3 downto 0) := "1001";
-
-  signal int_toBCD : std_logic_vector(3 downto 0);
+  signal int_toBCD : std_logic_vector(7 downto 0);
 begin
 -- ==== ARCHITECTURE START
 
 int_reset <= GReset;
 int_resetLow <= not GReset;
-nine <= "1001";
 
 filter: clockFilter_100Mhz
   port map(
@@ -122,7 +119,7 @@ counter : counter4
 isCountDone: comparator4
   port map(
     i_a => int_count,
-    i_b => nine,
+    i_b => "1001",
     o_gteq => int_countDone
   );
 
@@ -163,12 +160,16 @@ int_loadDisplay <= not int_fsmState;
 int_enableCounter <= int_fsmState;
 int_resetCounter <= int_fsmState; -- counter's reset is low
 
-bcd: hex_bcd_decoder
-  port map(
-    i_hex => int_toBCD,
-    o_bcd1 => BCD1,
-    o_bcd2 => BCD2
-  );
+BCD1 <= int_toBCD(7 downto 4);
+BCD2 <= int_toBCD(3 downto 0);
+
+
+--bcd1: hex_bcd_decoder
+--  port map(
+--    i_hex => int_toBCD,
+--    o_bcd1 => BCD1,
+--    o_bcd2 => BCD2
+--  );
 
 
 end architecture;

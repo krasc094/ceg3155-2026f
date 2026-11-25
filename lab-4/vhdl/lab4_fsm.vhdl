@@ -7,7 +7,6 @@ entity lab4_fsm is
     i_clock, i_reset_low : in std_logic;
     i_countDone : in std_logic;
 
-    o_shift : out std_logic;
     o_state : out std_logic
   );
 end entity;
