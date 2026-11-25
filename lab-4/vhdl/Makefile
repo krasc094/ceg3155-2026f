@@ -4,7 +4,7 @@ R_FLAGS = --vcd=$(WAVE_F).vcd --wave=$(WAVE_F).ghw --stop-time=1us
 
 # === vhdl components
 DEPS = ./*.vhdl ./components/*.vhdl ./testbench/*.vhdl
-TOP_LEVEL = tb_shiftRegisterSerial
+TOP_LEVEL = tb_shiftRegister
 
 WAVE_F = wave
 
