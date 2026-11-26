@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240" font-family="Times New Roman, serif" font-size="15">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="black"/>
+    </marker>
+  </defs>
+  <rect width="520" height="240" fill="white"/>
+
+  <!-- reset arrow -->
+  <line x1="40" y1="140" x2="88" y2="140" stroke="black" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="18" y="132">GReset</text>
+
+  <!-- states -->
+  <circle cx="140" cy="140" r="50" fill="white" stroke="black" stroke-width="2"/>
+  <text x="140" y="136" text-anchor="middle" font-weight="bold">Waiting</text>
+  <text x="140" y="156" text-anchor="middle">s = 0</text>
+
+  <circle cx="380" cy="140" r="50" fill="white" stroke="black" stroke-width="2"/>
+  <text x="380" y="136" text-anchor="middle" font-weight="bold">Reading</text>
+  <text x="380" y="156" text-anchor="middle">s = 1</text>
+
+  <!-- Waiting -> Reading -->
+  <path d="M182,113 Q260,70 338,113" fill="none" stroke="black" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="260" y="78" text-anchor="middle">KbInfo = 0 (start bit)</text>
+
+  <!-- Reading -> Waiting -->
+  <path d="M338,167 Q260,210 182,167" fill="none" stroke="black" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="260" y="218" text-anchor="middle">countDone = 1</text>
+
+  <!-- self loops -->
+  <path d="M118,95 C95,30 185,30 162,95" fill="none" stroke="black" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="140" y="28" text-anchor="middle">KbInfo = 1</text>
+
+  <path d="M358,95 C335,30 425,30 402,95" fill="none" stroke="black" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="380" y="28" text-anchor="middle">countDone = 0</text>
+</svg>

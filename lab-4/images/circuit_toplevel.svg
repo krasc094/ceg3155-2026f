@@ -1,0 +1,147 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 860" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="black"/>
+    </marker>
+    <style>
+      .blk { fill: #f4f6fa; stroke: black; stroke-width: 2; }
+      .g { fill: white; stroke: black; stroke-width: 1.8; }
+      .w { fill: none; stroke: black; stroke-width: 1.8; }
+      .bus { fill: none; stroke: black; stroke-width: 4; }
+      .ttl { font-weight: bold; font-size: 19px; }
+      .sub { font-size: 15px; fill: #444; }
+      .pt { font-size: 15px; }
+      .net { font-size: 16px; fill: #1f4fbf; font-style: italic; }
+      .io { font-weight: bold; font-size: 18px; }
+    </style>
+  </defs>
+  <rect width="780" height="860" fill="white"/>
+
+  <!-- ===== KbInfo ===== -->
+  <text x="10" y="81" class="io">KbInfo</text>
+  <line x1="80" y1="75" x2="498" y2="75" class="w" marker-end="url(#a)"/>
+  <circle cx="120" cy="75" r="4.5"/>
+  <polyline points="120,75 120,230 178,230" class="w" marker-end="url(#a)"/>
+
+  <!-- ===== serial shift register ===== -->
+  <rect x="500" y="50" width="220" height="110" class="blk"/>
+  <text x="610" y="103" text-anchor="middle" class="ttl">shiftRegisterSerial</text>
+  <text x="610" y="123" text-anchor="middle" class="sub">reg (n = 8)</text>
+  <text x="507" y="81" class="pt">i_d</text>
+  <text x="507" y="146" class="pt">i_shift</text>
+  <text x="618" y="155" class="pt">o</text>
+
+  <!-- displayIn bus -->
+  <line x1="610" y1="160" x2="610" y2="238" class="bus" marker-end="url(#a)"/>
+  <line x1="601" y1="205" x2="619" y2="195" stroke="black" stroke-width="1.6"/>
+  <text x="626" y="206" class="pt">8</text>
+  <text x="640" y="206" class="net">displayIn</text>
+
+  <!-- ===== display register ===== -->
+  <rect x="500" y="240" width="220" height="110" class="blk"/>
+  <text x="610" y="293" text-anchor="middle" class="ttl">shiftRegister</text>
+  <text x="610" y="313" text-anchor="middle" class="sub">displayReg (load only)</text>
+  <text x="618" y="260" class="pt">i_d</text>
+  <text x="507" y="343" class="pt">i_load</text>
+  <text x="618" y="344" class="pt">o_q</text>
+
+  <!-- toBCD bus -->
+  <line x1="610" y1="350" x2="610" y2="428" class="bus" marker-end="url(#a)"/>
+  <line x1="601" y1="395" x2="619" y2="385" stroke="black" stroke-width="1.6"/>
+  <text x="626" y="396" class="pt">bits 3..0</text>
+  <text x="626" y="416" class="net">toBCD</text>
+
+  <!-- ===== decoder ===== -->
+  <rect x="500" y="430" width="220" height="110" class="blk"/>
+  <text x="610" y="483" text-anchor="middle" class="ttl">hex_bcd_decoder</text>
+  <text x="610" y="503" text-anchor="middle" class="sub">decoder_inst</text>
+  <text x="618" y="450" class="pt">i_hex</text>
+  <text x="560" y="534" text-anchor="middle" class="pt">o_bcd1</text>
+  <text x="660" y="534" text-anchor="middle" class="pt">o_bcd2</text>
+  <line x1="560" y1="540" x2="560" y2="590" class="bus" marker-end="url(#a)"/>
+  <line x1="660" y1="540" x2="660" y2="590" class="bus" marker-end="url(#a)"/>
+  <text x="560" y="612" text-anchor="middle" class="io">BCD1</text>
+  <text x="660" y="612" text-anchor="middle" class="io">BCD2</text>
+
+  <!-- ===== FSM ===== -->
+  <rect x="180" y="200" width="200" height="110" class="blk"/>
+  <text x="280" y="253" text-anchor="middle" class="ttl">lab4_fsm</text>
+  <text x="280" y="273" text-anchor="middle" class="sub">fsm</text>
+  <text x="187" y="236" class="pt">K</text>
+  <text x="187" y="291" class="pt">C</text>
+  <text x="373" y="261" text-anchor="end" class="pt">s</text>
+
+  <!-- s net -->
+  <line x1="380" y1="255" x2="420" y2="255" class="w"/>
+  <circle cx="420" cy="255" r="4.5"/>
+  <text x="426" y="250" class="net">s</text>
+  <polyline points="420,255 420,106 440,106" class="w"/>
+  <polyline points="420,255 420,350 320,350 320,368" class="w" marker-end="url(#a)"/>
+  <circle cx="320" cy="350" r="4.5"/>
+  <polyline points="320,350 240,350 240,368" class="w" marker-end="url(#a)"/>
+
+  <!-- AND gate -> i_shift -->
+  <path d="M440,95 H462 A22,22 0 0 1 462,139 H440 Z" class="g"/>
+  <line x1="490" y1="140" x2="498" y2="140" class="w" marker-end="url(#a)"/>
+  <polyline points="484,117 490,117 490,140" class="w"/>
+  <text x="466" y="160" class="net">shift</text>
+
+  <!-- ===== counter ===== -->
+  <rect x="180" y="370" width="200" height="110" class="blk"/>
+  <text x="280" y="438" text-anchor="middle" class="ttl">counter4</text>
+  <text x="280" y="458" text-anchor="middle" class="sub">counter</text>
+  <text x="240" y="390" text-anchor="middle" class="pt">en</text>
+  <text x="320" y="390" text-anchor="middle" class="pt">rst_n</text>
+  <text x="187" y="430" class="pt">n</text>
+
+  <!-- count bus -->
+  <polyline points="180,425 160,425 160,650" class="bus"/>
+  <line x1="152" y1="497" x2="168" y2="487" stroke="black" stroke-width="1.6"/>
+  <text x="166" y="512" class="pt">4</text>
+  <circle cx="160" cy="560" r="5"/>
+  <line x1="160" y1="560" x2="198" y2="560" class="bus" marker-end="url(#a)"/>
+  <line x1="160" y1="650" x2="198" y2="650" class="bus" marker-end="url(#a)"/>
+
+  <!-- ===== comparators ===== -->
+  <rect x="200" y="530" width="200" height="60" class="blk"/>
+  <text x="300" y="553" text-anchor="middle" class="ttl">comparator4</text>
+  <text x="300" y="575" text-anchor="middle" class="sub">isDataBit: n &lt; 1000</text>
+  <text x="394" y="586" text-anchor="end" class="pt">lt</text>
+
+  <rect x="200" y="620" width="200" height="60" class="blk"/>
+  <text x="300" y="643" text-anchor="middle" class="ttl">comparator4</text>
+  <text x="300" y="665" text-anchor="middle" class="sub">isCountDone: n &#8805; 1001</text>
+  <text x="394" y="676" text-anchor="end" class="pt">gteq</text>
+
+  <!-- isData -> AND -->
+  <polyline points="400,560 460,560 460,170 430,170 430,128 440,128" class="w"/>
+  <text x="454" y="440" class="net" transform="rotate(-90 454 440)">isData</text>
+
+  <!-- countDone -> i_load and FSM C -->
+  <line x1="400" y1="650" x2="480" y2="650" class="w"/>
+  <circle cx="480" cy="650" r="4.5"/>
+  <polyline points="480,650 480,338 498,338" class="w" marker-end="url(#a)"/>
+  <text x="495" y="640" class="net" transform="rotate(-90 495 640)">countDone</text>
+  <polyline points="480,650 480,700 140,700 140,285 178,285" class="w" marker-end="url(#a)"/>
+
+  <!-- ===== reset inverter ===== -->
+  <text x="520" y="706" class="io">GReset</text>
+  <line x1="590" y1="700" x2="610" y2="700" class="w"/>
+  <polygon points="610,686 610,714 634,700" class="g"/>
+  <circle cx="639" cy="700" r="5" class="g"/>
+  <line x1="644" y1="700" x2="668" y2="700" class="w"/>
+  <text x="673" y="706" class="net">resetBar</text>
+
+  <!-- ===== clock filter ===== -->
+  <text x="300" y="732" text-anchor="middle" class="ttl">clockFilter_100Mhz</text>
+  <rect x="200" y="740" width="200" height="100" class="blk"/>
+  <text x="10" y="776" class="io">GClock</text>
+  <text x="10" y="816" class="io">KbClock</text>
+  <line x1="88" y1="770" x2="198" y2="770" class="w" marker-end="url(#a)"/>
+  <line x1="96" y1="810" x2="198" y2="810" class="w" marker-end="url(#a)"/>
+  <text x="207" y="776" class="pt">i_clk_100mhz</text>
+  <text x="207" y="816" class="pt">i_kbClk</text>
+  <text x="393" y="796" text-anchor="end" class="pt">o_clk</text>
+  <line x1="400" y1="790" x2="425" y2="790" class="w"/>
+  <text x="430" y="796" class="net">clk_f</text>
+</svg>

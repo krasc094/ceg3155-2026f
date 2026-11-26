@@ -1,0 +1,25 @@
+set_property SRC_FILE_INFO {cfile:C:/Desktop/MyNotes/uOttawa/Year_4/Digital_System_II/Labs/ceg3155-2026f/lab-4/vhdl/toplevel_constraint.xdc rfile:../../../../vhdl/toplevel_constraint.xdc id:1} [current_design]
+set_property src_info {type:XDC file:1 line:8 export:INPUT save:INPUT read:READ} [current_design]
+set_property -dict { PACKAGE_PIN E3    IOSTANDARD LVCMOS33 } [get_ports { GClock }]; #IO_L12P_T1_MRCC_35 Sch=clk100mhz
+set_property src_info {type:XDC file:1 line:35 export:INPUT save:INPUT read:READ} [current_design]
+set_property -dict { PACKAGE_PIN R18   IOSTANDARD LVCMOS33 } [get_ports { BCD2[0] }]; #IO_L7P_T1_D09_14 Sch=led[4]
+set_property src_info {type:XDC file:1 line:36 export:INPUT save:INPUT read:READ} [current_design]
+set_property -dict { PACKAGE_PIN V17   IOSTANDARD LVCMOS33 } [get_ports { BCD2[1] }]; #IO_L18N_T2_A11_D27_14 Sch=led[5]
+set_property src_info {type:XDC file:1 line:37 export:INPUT save:INPUT read:READ} [current_design]
+set_property -dict { PACKAGE_PIN U17   IOSTANDARD LVCMOS33 } [get_ports { BCD2[2] }]; #IO_L17P_T2_A14_D30_14 Sch=led[6]
+set_property src_info {type:XDC file:1 line:38 export:INPUT save:INPUT read:READ} [current_design]
+set_property -dict { PACKAGE_PIN U16   IOSTANDARD LVCMOS33 } [get_ports { BCD2[3] }]; #IO_L18P_T2_A12_D28_14 Sch=led[7]
+set_property src_info {type:XDC file:1 line:43 export:INPUT save:INPUT read:READ} [current_design]
+set_property -dict { PACKAGE_PIN V15   IOSTANDARD LVCMOS33 } [get_ports { BCD1[0] }]; #IO_L16P_T2_CSI_B_14 Sch=led[12]
+set_property src_info {type:XDC file:1 line:44 export:INPUT save:INPUT read:READ} [current_design]
+set_property -dict { PACKAGE_PIN V14   IOSTANDARD LVCMOS33 } [get_ports { BCD1[1] }]; #IO_L22N_T3_A04_D20_14 Sch=led[13]
+set_property src_info {type:XDC file:1 line:45 export:INPUT save:INPUT read:READ} [current_design]
+set_property -dict { PACKAGE_PIN V12   IOSTANDARD LVCMOS33 } [get_ports { BCD1[2] }]; #IO_L20N_T3_A07_D23_14 Sch=led[14]
+set_property src_info {type:XDC file:1 line:46 export:INPUT save:INPUT read:READ} [current_design]
+set_property -dict { PACKAGE_PIN V11   IOSTANDARD LVCMOS33 } [get_ports { BCD1[3] }]; #IO_L21N_T3_DQS_A06_D22_14 Sch=led[15]
+set_property src_info {type:XDC file:1 line:78 export:INPUT save:INPUT read:READ} [current_design]
+set_property -dict { PACKAGE_PIN N17   IOSTANDARD LVCMOS33 } [get_ports { GReset }]; #IO_L9P_T1_DQS_14 Sch=btnc
+set_property src_info {type:XDC file:1 line:192 export:INPUT save:INPUT read:READ} [current_design]
+set_property -dict { PACKAGE_PIN F4    IOSTANDARD LVCMOS33 } [get_ports { KbClock }]; #IO_L13P_T2_MRCC_35 Sch=ps2_clk
+set_property src_info {type:XDC file:1 line:193 export:INPUT save:INPUT read:READ} [current_design]
+set_property -dict { PACKAGE_PIN B2    IOSTANDARD LVCMOS33 } [get_ports { KbInfo }]; #IO_L10N_T1_AD15N_35 Sch=ps2_data

@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 300" font-family="Arial, Helvetica, sans-serif" font-size="13">
+  <defs>
+    <style>
+      .w { fill: none; stroke: black; stroke-width: 1.4; }
+      .g { fill: white; stroke: black; stroke-width: 1.4; }
+      .pt { font-size: 17px; }
+      .net { font-size: 18px; fill: #1f4fbf; font-style: italic; }
+      .io { font-weight: bold; font-size: 18px; }
+    </style>
+  </defs>
+  <rect width="760" height="300" fill="white"/>
+
+  <!-- inputs -->
+  <text x="10" y="86" class="io">KbInfo (K)</text>
+  <text x="10" y="206" class="io">countDone (C)</text>
+
+  <!-- NOT K -->
+  <line x1="10" y1="95" x2="150" y2="95" class="w"/>
+  <polygon points="150,80 150,110 176,95" class="g"/>
+  <circle cx="180" cy="95" r="4" class="g"/>
+  <line x1="184" y1="95" x2="260" y2="95" class="w"/>
+
+  <!-- NOT C -->
+  <line x1="10" y1="215" x2="150" y2="215" class="w"/>
+  <polygon points="150,200 150,230 176,215" class="g"/>
+  <circle cx="180" cy="215" r="4" class="g"/>
+  <line x1="184" y1="215" x2="260" y2="215" class="w"/>
+
+  <!-- AND1: s' K' -->
+  <path d="M260,50 H280 A30,30 0 0 1 280,110 H260 Z" class="g"/>
+  <!-- AND2: s C' -->
+  <path d="M260,170 H280 A30,30 0 0 1 280,230 H260 Z" class="g"/>
+
+  <!-- AND outputs to OR -->
+  <polyline points="310,80 350,80 350,125 378,125" class="w"/>
+  <polyline points="310,200 350,200 350,155 378,155" class="w"/>
+
+  <!-- OR -->
+  <path d="M370,110 Q390,140 370,170 Q420,170 445,140 Q420,110 370,110 Z" class="g"/>
+  <line x1="445" y1="140" x2="490" y2="140" class="w"/>
+  <text x="455" y="132" class="net">S</text>
+
+  <!-- D flip-flop -->
+  <rect x="490" y="110" width="100" height="100" fill="#f4f6fa" stroke="black" stroke-width="1.6"/>
+  <text x="540" y="102" text-anchor="middle" style="font-weight:bold;font-size:18px">enARdFF_2</text>
+  <text x="497" y="146" class="pt">D</text>
+  <polyline points="490,175 500,182 490,189" class="w"/>
+  <text x="505" y="188" class="pt">clk</text>
+  <text x="584" y="146" text-anchor="end" class="pt">Q</text>
+  <text x="584" y="196" text-anchor="end" class="pt">Q̄</text>
+  <line x1="450" y1="182" x2="490" y2="182" class="w"/>
+  <text x="446" y="188" text-anchor="end" class="net">clk_f</text>
+  <line x1="540" y1="210" x2="540" y2="232" class="w"/>
+  <text x="540" y="252" text-anchor="middle" class="net">resetBar</text>
+
+  <!-- Q = s, output and feedback -->
+  <line x1="590" y1="140" x2="700" y2="140" class="w"/>
+  <text x="706" y="146" class="io">s</text>
+  <text x="700" y="170" text-anchor="middle" class="pt">(o_state)</text>
+  <circle cx="650" cy="140" r="3.5"/>
+  <polyline points="650,140 650,280 230,280 230,185 260,185" class="w"/>
+  <text x="236" y="180" class="net">s</text>
+
+  <!-- Qbar = s', feedback -->
+  <polyline points="590,190 615,190 615,30 230,30 230,65 260,65" class="w"/>
+  <text x="236" y="60" class="net">s̄</text>
+
+  <!-- equation -->
+  <text x="440" y="268" text-anchor="middle" style="font-size:18px">S = s̄·K̄ + s·C̄</text>
+</svg>

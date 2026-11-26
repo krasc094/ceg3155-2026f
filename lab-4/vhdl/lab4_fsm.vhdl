@@ -25,8 +25,8 @@ architecture structural of lab4_fsm is
   signal int_state, int_nextState : std_logic;
 begin
 
-  int_nextState <= (int_state and i_countDone and i_kbInfo) 
-                  or (not i_kbInfo and not i_countDone);
+  int_nextState <= (not int_state and not i_kbInfo)
+                  or (int_state and not i_countDone);
 
   state: enARdFF_2
    port map(

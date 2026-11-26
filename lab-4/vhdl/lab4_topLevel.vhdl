@@ -85,6 +85,8 @@ end component;
   signal int_fsmState : std_logic;
   signal int_countDone : std_logic;
 
+  signal int_isData : std_logic;
+
   signal int_displayIn : std_logic_vector(7 downto 0); 
 
   signal int_loadDisplay : std_logic;
@@ -142,6 +144,13 @@ reg: shiftRegisterSerial
     o => int_displayIn
 );
 
+isDataBit: comparator4
+  port map(
+    i_a => int_count,
+    i_b => "1000",
+    o_lt => int_isData
+  );
+
 displayReg: shiftRegister
  generic map( n => 8 )
  port map(
@@ -155,21 +164,22 @@ displayReg: shiftRegister
     o_q => int_toBCD
 );
 
-int_shift <= int_fsmState;
-int_loadDisplay <= not int_fsmState;
+int_shift <= int_fsmState and int_isData;
+int_loadDisplay <= int_countDone;
 int_enableCounter <= int_fsmState;
 int_resetCounter <= int_fsmState; -- counter's reset is low
 
-BCD1 <= int_toBCD(7 downto 4);
-BCD2 <= int_toBCD(3 downto 0);
+-- BCD1 <= int_toBCD(7 downto 4);
+-- BCD2 <= int_toBCD(3 downto 0);
 
 
---bcd1: hex_bcd_decoder
---  port map(
---    i_hex => int_toBCD,
---    o_bcd1 => BCD1,
---    o_bcd2 => BCD2
---  );
+decoder_inst: hex_bcd_decoder
+  port map (
+    i_hex  => int_toBCD(3 downto 0),
+    o_bcd1 => BCD1,
+    o_bcd2 => BCD2
+  );
+
 
 
 end architecture;
